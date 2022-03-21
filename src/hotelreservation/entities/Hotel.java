@@ -57,6 +57,4 @@ public class Hotel {
     }
 
     public ArrayList<Room> getRooms() {return this.rooms;}
-
-    public void setRooms(ArrayList<Room> rooms) {this.rooms = rooms;}
 }
