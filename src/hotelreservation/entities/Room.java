@@ -18,7 +18,7 @@ public class Room {
         this.reserved = reserved;
     }
 
-    public void bookRoom() {reserved = true;}
+    public void bookRoom() {this.reserved = true;}
 
-    public boolean isAvailable() {return reserved;}
+    public boolean isAvailable() {return this.reserved;}
 }
