@@ -1,5 +1,5 @@
 package hotelreservation.controllers;
 
-public class reservation_controller {
+public class reservationController {
     
 }
