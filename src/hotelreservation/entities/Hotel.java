@@ -1,4 +1,5 @@
-package hotelreservation;
+package hotelreservation.entities;
+
 import java.util.ArrayList;
 
 
