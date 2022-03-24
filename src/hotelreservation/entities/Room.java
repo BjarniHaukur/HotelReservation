@@ -4,13 +4,11 @@ import hotelreservation.entities.Enums.RoomType;
 
 public class Room {
 
-    
-
     private String id;
     private RoomType type;
     private int numBeds;
     private boolean reserved;
-    
+
     public Room(String id, RoomType type, int numBeds, boolean reserved) {
         this.id = id;
         this.type = type;
@@ -18,7 +16,11 @@ public class Room {
         this.reserved = reserved;
     }
 
-    public void bookRoom() {reserved = true;}
+    public void bookRoom() {
+        reserved = true;
+    }
 
-    public boolean isAvailable() {return reserved;}
+    public boolean isAvailable() {
+        return reserved;
+    }
 }
