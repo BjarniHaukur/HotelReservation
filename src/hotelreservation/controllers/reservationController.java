@@ -1,5 +1,8 @@
 package hotelreservation.controllers;
 
-public class reservationController {
-    
+public class ReservationController {
+    // checkIn
+    // checkOut
 }
+
+
