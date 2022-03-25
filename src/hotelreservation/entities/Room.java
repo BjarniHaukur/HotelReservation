@@ -7,7 +7,7 @@ public class Room {
     private String id;
     private RoomType type;
     private int numBeds;
-    private boolean reserved;
+    private boolean reserved; // sleppa
 
     public Room(String id, RoomType type, int numBeds, boolean reserved) {
         this.id = id;
