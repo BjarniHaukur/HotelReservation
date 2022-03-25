@@ -10,12 +10,12 @@ public class Hotel {
     private Integer priceRating;
     private ArrayList<Room> rooms;
 
-    public Hotel(String name, Integer id, Integer starRating, Integer priceRating, ArrayList<Room> rooms) {
+    public Hotel(String name, Integer id, Integer starRating, Integer priceRating) {
         this.id = id;
         this.name = name;
         this.starRating = starRating;
         this.priceRating = priceRating;
-        this.rooms = rooms;
+        this.rooms = null;
     }
 
     public void addRoom(Room newRoom) {
