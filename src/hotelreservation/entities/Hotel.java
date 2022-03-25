@@ -1,17 +1,16 @@
 package hotelreservation.entities;
 
-import hotelreservation.entities.Enums.*;
 import java.util.ArrayList;
 
 public class Hotel {
 
-    private String id;
+    private Integer id;
     private String name;
-    private int starRating;
-    private Price priceRating;
+    private Integer starRating;
+    private Integer priceRating;
     private ArrayList<Room> rooms;
 
-    public Hotel(String id, String name, int starRating, Price priceRating, ArrayList<Room> rooms) {
+    public Hotel(String name, Integer id, Integer starRating, Integer priceRating, ArrayList<Room> rooms) {
         this.id = id;
         this.name = name;
         this.starRating = starRating;
@@ -23,11 +22,11 @@ public class Hotel {
         rooms.add(newRoom);
     }
 
-    public String getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -39,19 +38,19 @@ public class Hotel {
         this.name = name;
     }
 
-    public int getStarRating() {
+    public Integer getStarRating() {
         return this.starRating;
     }
 
-    public void setStarRating(int starRating) {
+    public void setStarRating(Integer starRating) {
         this.starRating = starRating;
     }
 
-    public Price getPriceRating() {
+    public Integer getPriceRating() {
         return this.priceRating;
     }
 
-    public void setPriceRating(Price priceRating) {
+    public void setPriceRating(Integer priceRating) {
         this.priceRating = priceRating;
     }
 

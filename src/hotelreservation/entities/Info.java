@@ -14,8 +14,9 @@ public class Info {
     private Boolean restaurant;
     private ArrayList<String> images;
 
-    public Info(Boolean gym, Boolean wifi, Boolean breakfast, Boolean pool, Boolean jacuzzi, Boolean bar,
-            ArrayList<String> images) {
+    public Info(Boolean gym, Boolean wifi, Boolean breakfast, Boolean pool, Boolean jacuzzi,
+                Boolean bar, ArrayList<String> images) {
+                    
         this.gym = gym;
         this.wifi = wifi;
         this.breakfast = breakfast;
