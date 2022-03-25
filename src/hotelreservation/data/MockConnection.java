@@ -1,16 +1,24 @@
 package hotelreservation.data;
 
+import java.util.HashMap;
+
 import hotelreservation.entities.*;
 
-public class MockConnection implements HotelDataConnection{
+public class MockConnection implements HotelDataConnection {
+
+    private HashMap<Integer, Hotel> hotels = new HashMap<Integer, Hotel>();
     
     public Hotel getHotelByID(Integer ID) {
-        Hotel test = new Hotel("test", ID, 2, 3);
-        return test;
+        return hotels.get(ID);
     } 
 
-    public Room getRoomByID(Integer ID) {
-        Room test = new Room(ID, 2, 3);
-        return test;
+    public void addHotel(Integer ID, Hotel hotel) {
+        hotels.put(ID, hotel);
     }
+
+    public Room getRoomByID(Integer ID) {
+        return null;
+    }
+
+   
 }

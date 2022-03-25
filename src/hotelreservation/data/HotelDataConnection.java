@@ -3,10 +3,10 @@ package hotelreservation.data;
 import hotelreservation.entities.*;
 import java.sql.SQLException;
 
-public interface HrDataConnection {
+public interface HotelDataConnection {
 
-    public Hotel getHotelByID(String ID) throws SQLException;
-    public Room getRoomByID(String ID) throws SQLException;
+    public Hotel getHotelByID(Integer ID) throws SQLException;
+    public Room getRoomByID(Integer ID) throws SQLException;
 
 
 }
