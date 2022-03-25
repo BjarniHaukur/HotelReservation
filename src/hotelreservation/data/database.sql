@@ -1,3 +1,88 @@
--- Hotels
--- Rooms
--- Reservations
+CREATE TABLE HOTELS (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    name VARCHAR(64) NOT NULL COLLATE NOCASE,
+    region INT NOT NULL,
+    address VARCHAR(64) COLLATE NOCASE,
+    image VARCHAR(32),
+    gym BOOLEAN DEFAULT FALSE,
+    spa BOOLEAN DEFAULT FALSE,
+    wifi BOOLEAN DEFAULT FALSE,
+    bar BOOLEAN DEFAULT FALSE,
+    restaurant BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY(id)
+    );
+
+CREATE TABLE ROOMS (
+    roomNum INT NOT NULL,
+    hotelId INT NOT NULL,
+    price INT NOT NULL,
+    breakfast BOOLEAN DEFAULT FALSE,
+    beds INT NOT NULL,
+    capacity INT NOT NULL,
+    PRIMARY KEY(roomNum,hotelId),
+    FOREIGN KEY(hotelId) REFERENCES HOTELS(id)
+    );
+
+-- ath contact
+CREATE TABLE RESERVATIONS (
+    reservationId VARCHAR(128) NOT NULL,
+    created BIGINT NOT NULL,
+    startDate BIGINT NOT NULL,
+    endDate BIGINT NOT NULL,
+    contact VARCHAR(32) NOT NULL,
+    hotelId VARCHAR(32) NOT NULL COLLATE NOCASE,
+    roomNum INT NOT NULL,
+    PRIMARY KEY(reservationID),
+    FOREIGN KEY(hotelId,roomNum) REFERENCES ROOMS(hotelId,roomNum)
+);
+
+CREATE TABLE REVIEWS (
+    ReviewID INTEGER PRIMARY KEY AUTOINCREMENT
+    , Grade INT NOT NULL
+    , Hname VARCHAR(32) NOT NULL COLLATE NOCASE
+    , Text VARCHAR(280)
+    , ReservationID VARCHAR(128) NOT NULL
+    , FOREIGN KEY(ReservationID) REFERENCES RESERVATIONS(ReservationID)
+    , FOREIGN KEY(Hname) REFERENCES HOTELS(name)
+);
+
+INSERT INTO HOTELS VALUES('The Plaza Hotel',0,'768 Fifth Avenue','plaza.jpg',0,1,1);
+INSERT INTO HOTELS VALUES('Bates Motel',0,'1054 272nd Street','bates.jpg',0,0,0);
+INSERT INTO HOTELS VALUES('Park Hyatt',1,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',1,1,1);
+INSERT INTO HOTELS VALUES('The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',0,0,1);
+INSERT INTO HOTELS VALUES("Caesar's Palace",3,'3570 S Las Vegas Blvd','caesar.jpg',1,0,1);
+INSERT INTO HOTELS VALUES('Grand Budapest Hotel',4,'GÃ¶rlitzer Warenhaus Department Store','budapest.jpg',0,0,1);
+INSERT INTO HOTELS VALUES('Seminole Ritz Hotel',5,'1500 Orange Ave','seminole.jpg',1,1,1);
+INSERT INTO HOTELS VALUES('Beverly Wilshire',6,'9500 Wilshire Blvd','wilshire.jpg',1,0,1);
+
+INSERT INTO ROOMS VALUES(101,'The Plaza Hotel',20000,1,0,1,1,0);
+INSERT INTO ROOMS VALUES(102,'The Plaza Hotel',25000,1,0,2,1,1);
+INSERT INTO ROOMS VALUES(103,'The Plaza Hotel',28000,1,1,1,2,0);
+
+INSERT INTO ROOMS VALUES(101,'Bates Motel',10000,0,0,1,1,0);
+INSERT INTO ROOMS VALUES(102,'Bates Motel',12000,0,0,1,1,0);
+INSERT INTO ROOMS VALUES(103,'Bates Motel',15000,1,0,1,1,0);
+
+INSERT INTO ROOMS VALUES(101,'Park Hyatt',30000,1,0,2,2,0);
+INSERT INTO ROOMS VALUES(102,'Park Hyatt',30000,1,0,2,1,1);
+INSERT INTO ROOMS VALUES(103,'Park Hyatt',35000,1,1,1,2,0);
+
+INSERT INTO ROOMS VALUES(101,'The Overlook Hotel',20000,0,0,2,1,1);
+INSERT INTO ROOMS VALUES(102,'The Overlook Hotel',22000,0,0,3,2,1);
+INSERT INTO ROOMS VALUES(103,'The Overlook Hotel',25000,1,0,1,2,0);
+
+INSERT INTO ROOMS VALUES(101,"Caesar's Palace",30000,1,0,1,1,0);
+INSERT INTO ROOMS VALUES(102,"Caesar's Palace",30000,1,0,1,1,0);
+INSERT INTO ROOMS VALUES(103,"Caesar's Palace",35000,1,0,1,2,0);
+
+INSERT INTO ROOMS VALUES(101,'Grand Budapest Hotel',25000,0,0,1,2,0);
+INSERT INTO ROOMS VALUES(102,'Grand Budapest Hotel',25000,0,0,1,2,0);
+INSERT INTO ROOMS VALUES(103,'Grand Budapest Hotel',28000,1,0,2,2,1);
+
+INSERT INTO ROOMS VALUES(101,'Seminole Ritz Hotel',40000,1,0,1,2,0);
+INSERT INTO ROOMS VALUES(102,'Seminole Ritz Hotel',45000,1,0,2,2,1);
+INSERT INTO ROOMS VALUES(103,'Seminole Ritz Hotel',50000,1,1,2,2,1);
+
+INSERT INTO ROOMS VALUES(101,'Beverly Wilshire',30000,1,0,1,2,0);
+INSERT INTO ROOMS VALUES(102,'Beverly Wilshire',30000,1,0,2,2,1);
+INSERT INTO ROOMS VALUES(103,'Beverly Wilshire',35000,1,1,2,2,1);

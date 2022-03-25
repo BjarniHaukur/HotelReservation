@@ -1,15 +1,26 @@
 package hotelreservation.entities;
 
+import hotelreservation.entities.Enums.RoomType;
 
 public class Room {
 
-    private Integer ID;
-    private Integer type;
-    private Integer numBeds;
+    private String id;
+    private RoomType type;
+    private int numBeds;
+    private boolean reserved; // sleppa
 
-    public Room(Integer ID, Integer type, Integer numBeds) {
-        this.ID = ID;
+    public Room(String id, RoomType type, int numBeds, boolean reserved) {
+        this.id = id;
         this.type = type;
         this.numBeds = numBeds;
+        this.reserved = reserved;
+    }
+
+    public void bookRoom() {
+        reserved = true;
+    }
+
+    public boolean isAvailable() {
+        return reserved;
     }
 }
