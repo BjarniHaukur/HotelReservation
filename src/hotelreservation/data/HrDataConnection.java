@@ -7,15 +7,11 @@ public interface HrDataConnection {
 
     public Hotel getHotelByID(String ID) throws SQLException;
     public Room getRoomByID(String ID) throws SQLException;
+    public 
 
 
 }
 
-// package flightplanner.data;
-
-// import flightplanner.entities.*;
-
-// import java.sql.SQLException;
 
 // public interface FlightDataConnection {
 //     public Flight getFlightById(int id) throws SQLException;
