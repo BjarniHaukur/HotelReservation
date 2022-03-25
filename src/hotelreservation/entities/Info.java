@@ -1,9 +1,5 @@
 package hotelreservation.entities;
 
-<<<<<<< HEAD
-public class Info {
-    
-=======
 import java.util.ArrayList;
 
 public class Info {
@@ -18,8 +14,9 @@ public class Info {
     private Boolean restaurant;
     private ArrayList<String> images;
 
-    public Info(Boolean gym, Boolean wifi, Boolean breakfast, Boolean pool, Boolean jacuzzi, Boolean bar,
-            ArrayList<String> images) {
+    public Info(Boolean gym, Boolean wifi, Boolean breakfast, Boolean pool, Boolean jacuzzi,
+                Boolean bar, ArrayList<String> images) {
+                    
         this.gym = gym;
         this.wifi = wifi;
         this.breakfast = breakfast;
@@ -29,5 +26,4 @@ public class Info {
         this.images = images;
     }
 
->>>>>>> 5d6989ba02bc071fa8be579dc8718a84ed94d956
 }
