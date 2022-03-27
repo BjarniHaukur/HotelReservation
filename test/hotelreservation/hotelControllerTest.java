@@ -2,21 +2,26 @@ package hotelreservation;
 
 import hotelreservation.entities.*;
 
-import hotelreservation.controllers;
+import org.junit.Assert;
+import org.junit.After;
+import org.junit.Test;
+import org.junit.Before;
 
-import lib.org.junit.After;
-import lib.org.junit.Before;
-import lib.org.junit.Test;
+import hotelreservation.controllers;
 
 import static org.junit.Assert.*;
 
+/**
+ * Testing suite for Hotel Controller.
+ * 
+ */
 public class hotelControllerTest {
 
     private Hotel hotel1;
     private HotelController hotelController;
 
     @Before
-    public void setUp() {
+    void setUp() {
         hotel1 = new Hotel("test", 1, 5, 3);
         hotelController = HotelController.getInstance();
     }
@@ -26,8 +31,8 @@ public class hotelControllerTest {
         hotel1 = null;
     }
 
-    @test
-    public void testID() {
+    @Test
+    void testID() {
         assertEquals(1, hotel1.getID());
     }
 
