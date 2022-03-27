@@ -20,7 +20,6 @@ public class HotelTest {
         hotelController = null;
     }
 
-    // Þarf þetta?
     @Test
     public void testGetId() {
         assertEquals((Integer) 1, hotelController.getHotelByID(1).getId());
