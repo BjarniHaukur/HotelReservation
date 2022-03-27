@@ -30,9 +30,9 @@ public class HotelTest {
 
     @Test
     public void testGetPriceRating(Integer ID) {
-        assertEquals(3, hotelController.getHotelByID(1).getName());
-        assertEquals(4, hotelController.getHotelByID(2).getName());
-        assertEquals(5, hotelController.getHotelByID(3).getName());
+        assertEquals(3, hotelController.getHotelByID(1).getPriceRating());
+        assertEquals(4, hotelController.getHotelByID(2).getPriceRating());
+        assertEquals(5, hotelController.getHotelByID(3).getPriceRating());
     }
 
     @After
