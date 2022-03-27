@@ -2,20 +2,22 @@ package hotelreservation;
 
 import hotelreservation.entities.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import hotelreservation.controllers;
+
+import lib.org.junit.After;
+import lib.org.junit.Before;
+import lib.org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class hotelControllerTest {
 
     private Hotel hotel1;
+    private HotelController hotelController;
 
-    // private HotelController hotelController;
     @Before
     public void setUp() {
-        hotel1 = new Hotel(1, 2, 3, 4);
+        hotel1 = new Hotel("test", 1, 5, 3);
         hotelController = HotelController.getInstance();
     }
 
