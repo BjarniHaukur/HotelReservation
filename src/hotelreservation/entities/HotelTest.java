@@ -6,28 +6,37 @@ import org.junit.Test;
 import org.junit.Before;
 
 public class HotelTest {
-    private Hotel hotel1;
     private HotelControllerMock hotelController;
 
     @Before
     void setUp() {
-        hotel1 = new Hotel(1, "test", 5, 3);
         hotelController = HotelControllerMock.getInstance();
     }
 
-    @Test
-    public void testGetId() {
-        
-    }
+    // Þarf þetta?
+    // @Test
+    // public void testGetId() {
+    //     assertEquals("Rangá", hotelController.getHotelByID(1).getName());
+    //     assertEquals("Hilton", hotelController.getHotelByID(2).getName());
+    //     assertEquals("Ölfus", hotelController.getHotelByID(3).getName());
+    // }
 
     @Test
-    public void testGetName(Integer ID) {
-        System.out.println(hotelController.getHotelByID(ID).getName());
-        //
+    public void testGetName() {
+        assertEquals("Rangá", hotelController.getHotelByID(1).getName());
+        assertEquals("Hilton", hotelController.getHotelByID(2).getName());
+        assertEquals("Ölfus", hotelController.getHotelByID(3).getName());
     }
 
     @Test
     public void testGetPriceRating(Integer ID) {
-        System.out.println(hotelController.getHotelByID(ID).getPriceRating());
+        assertEquals(3, hotelController.getHotelByID(1).getName());
+        assertEquals(4, hotelController.getHotelByID(2).getName());
+        assertEquals(5, hotelController.getHotelByID(3).getName());
+    }
+
+    @After
+    public void tearDown(){
+        hotelController = null;
     }
 }
