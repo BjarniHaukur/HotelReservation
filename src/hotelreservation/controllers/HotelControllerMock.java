@@ -7,11 +7,7 @@ import hotelreservation.entities.Hotel;
 public class HotelControllerMock {
 
     private static HotelControllerMock instance = null;
-    private MockConnection connection = new MockConnection();
-        
-    public void addHotel(Integer ID, Hotel hotel) {
-        connection.addHotel(ID, hotel);
-    }
+    private MockConnection connection = MockConnection.getInstance();
 
     public Hotel getHotelByID(Integer ID) {
         return connection.getHotelByID(ID);

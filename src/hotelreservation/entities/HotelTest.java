@@ -11,7 +11,7 @@ public class HotelTest {
 
     @Before
     void setUp() {
-        hotel1 = new Hotel("test", 1, 5, 3);
+        hotel1 = new Hotel(1, "test", 5, 3);
         hotelController = HotelControllerMock.getInstance();
     }
 
