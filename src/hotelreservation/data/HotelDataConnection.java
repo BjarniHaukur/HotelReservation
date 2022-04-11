@@ -94,6 +94,7 @@ public class HotelDataConnection {
                     nextStatement = new StringBuffer();
                 }
             }
+			scriptReader.close();
     }
 
     public ArrayList<Person> getAllPersons() throws Exception{
