@@ -14,6 +14,10 @@ public class HotelController {
         return null;
     }
 
+    public String bla() {
+        return "bla";
+    }
+
     /**
      * Returns the instance of the HotelController
      * @return the HotelController instance

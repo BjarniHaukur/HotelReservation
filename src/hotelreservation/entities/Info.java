@@ -1,6 +1,7 @@
 package hotelreservation.entities;
 
 import java.util.ArrayList;
+import hotelreservation.controllers.HotelController;
 
 public class Info {
 
@@ -37,6 +38,15 @@ public class Info {
         allInfo += "Restaurant: " + this.restaurant + "\n";
         allInfo += "Images: " + this.images + "\n";
         return allInfo;
+    }
+
+    public static void main(String args[]) {
+        System.out.println("Hello World!");
+        Info inf = new Info(true, true, true, true, true, true, true, new ArrayList<String>());
+        HotelController hc = HotelController.getInstance();
+        System.out.println(hc.bla());
+        System.out.println(inf.getInfoString());
+        
     }
 
 }

@@ -24,10 +24,10 @@ public class Room {
      * @params: Long dateFrom, Long dateTo
      * @return: boolean, true if the room is available then, false if not
      */
-    public Boolean isAvailable(Long dateFrom, Long dateTo) {
-        for (Reservation reservation : reservations) {
+    // public Boolean isAvailable(Long dateFrom, Long dateTo) {
+    //     for (Reservation reservation : reservations) {
             
-        }
-    }
+    //     }
+    // }
 
 }
