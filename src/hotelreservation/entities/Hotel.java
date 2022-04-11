@@ -8,14 +8,16 @@ public class Hotel {
     private String name;
     private Integer starRating;
     private Integer priceRating;
+    private Info hotelInfo;
     private ArrayList<Room> rooms;
 
-    public Hotel(Integer id, String name, Integer starRating, Integer priceRating) {
+    public Hotel(Integer id, String name, Integer starRating, Integer priceRating, Info hotelInfo) {
         this.id = id;
         this.name = name;
         this.starRating = starRating;
         this.priceRating = priceRating;
         this.rooms = null;
+        this.hotelInfo = hotelInfo;
     }
 
     public void addRoom(Room newRoom) {
@@ -56,5 +58,9 @@ public class Hotel {
 
     public ArrayList<Room> getRooms() {
         return this.rooms;
+    }
+
+    public Info getInfo() {
+        return this.hotelInfo;
     }
 }

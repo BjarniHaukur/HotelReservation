@@ -1,14 +1,16 @@
 package hotelreservation.controllers;
 
-import hotelreservation.data.OnlineConnection;
+import java.sql.SQLException;
+
+import hotelreservation.data.HotelDataConnection;
 import hotelreservation.entities.Hotel;
 
 public class HotelController {
     
     private static HotelController instance = null;
-    private OnlineConnection connection = OnlineConnection.getInstance();
+    private HotelDataConnection connection = HotelDataConnection.getInstance();
 
-    public Hotel getHotelByID(Integer ID) {
+    public Hotel getHotelByID(Integer ID) throws SQLException {
         return connection.getHotelByID(ID);
     }
 

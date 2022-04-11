@@ -8,7 +8,7 @@ import hotelreservation.entities.*;
  * Simulates having a connection to our future SQL database
  */
 
-public class MockConnection implements HotelDataConnection {
+public class MockConnection implements DatabaseConnection {
 
     private static MockConnection instance = null;
     private HashMap<Integer, Hotel> hotels = new HashMap<Integer, Hotel>();
