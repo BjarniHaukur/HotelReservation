@@ -97,7 +97,7 @@ public class HotelDataConnection {
 			scriptReader.close();
     }
 
-    public ArrayList<Person> getAllPersons() throws Exception{
+    public ArrayList<Hotel> getAllHotels() throws Exception{
         getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS");
