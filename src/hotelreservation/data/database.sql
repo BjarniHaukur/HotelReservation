@@ -51,7 +51,7 @@ INSERT INTO HOTELS VALUES('Bates Motel',0,'1054 272nd Street','bates.jpg',0,0,0)
 INSERT INTO HOTELS VALUES('Park Hyatt',1,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',1,1,1);
 INSERT INTO HOTELS VALUES('The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',0,0,1);
 INSERT INTO HOTELS VALUES("Caesar's Palace",3,'3570 S Las Vegas Blvd','caesar.jpg',1,0,1);
-INSERT INTO HOTELS VALUES('Grand Budapest Hotel',4,'GÃ¶rlitzer Warenhaus Department Store','budapest.jpg',0,0,1);
+INSERT INTO HOTELS VALUES('Grand Budapest Hotel',4,'Garlitzer Warenhaus Department Store','budapest.jpg',0,0,1);
 INSERT INTO HOTELS VALUES('Seminole Ritz Hotel',5,'1500 Orange Ave','seminole.jpg',1,1,1);
 INSERT INTO HOTELS VALUES('Beverly Wilshire',6,'9500 Wilshire Blvd','wilshire.jpg',1,0,1);
 
