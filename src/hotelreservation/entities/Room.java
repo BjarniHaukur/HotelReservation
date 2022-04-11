@@ -8,19 +8,25 @@ public class Room {
     private Integer type;
     private Integer numBeds;
     private ArrayList<Reservation> reservations;
+    private ArrayList<String> images;
 
-    public Room(Integer id, Integer type, Integer numBeds, ArrayList<Reservation> reservations) {
+    public Room(Integer id, Integer type, Integer numBeds, ArrayList<Reservation> reservations, ArrayList<String> images) {
         this.id = id;
         this.type = type;
         this.numBeds = numBeds;
         this.reservations = reservations;
+        this.images = images;
     }
 
-    public void isAvailable(String dateFrom, String dateTo) {
+
+    /**
+     * Checks whether the room is available for the given date range.
+     * @params: Long dateFrom, Long dateTo
+     * @return: boolean, true if the room is available then, false if not
+     */
+    public Boolean isAvailable(Long dateFrom, Long dateTo) {
         for (Reservation reservation : reservations) {
-            if (reservation.getDateFrom().equals(dateFrom) || reservation.getDateFrom().equals(dateTo)) {
-                System.out.println("Room is not available");
-            }
+            
         }
     }
 

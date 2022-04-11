@@ -1,0 +1,354 @@
+[33mcommit c0e77f091d4c7fb773690affdcac1d6c31e97181[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: fd486f8 06927a1
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Apr 11 21:42:55 2022 +0000
+
+    Merge branch 'main' of github.com:Bobbi11/HotelReservation
+
+[33mcommit 06927a1b3bf1a5bb63046abef2cbb6fe4350ed85[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Apr 11 21:42:39 2022 +0000
+
+    update readme
+
+[33mcommit fd486f8492744c282029128173759fed9f082faf[m
+Merge: 68303ec 386838e
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Apr 11 21:38:52 2022 +0000
+
+    Merge branch 'main' of github.com:Bobbi11/HotelReservation
+
+[33mcommit 386838e6c100cffca8bbb93a3f660fb8cdbf753d[m
+Author: Tludviksson <202111472@alu.comillas.edu>
+Date:   Mon Apr 11 21:38:42 2022 +0000
+
+    wow amazing
+
+[33mcommit 68303ece63c6a6bb9076a69e85d61673f296184a[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Apr 11 21:38:22 2022 +0000
+
+    mystuff
+
+[33mcommit 2570b71cee16389fc25ccc8c39f67553cd765bcf[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Apr 11 21:33:51 2022 +0000
+
+    chore
+
+[33mcommit ca777393fdd0ea569729af305974993c9467ea5c[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Apr 11 21:17:30 2022 +0000
+
+    chore: scriptReader leak
+
+[33mcommit d7f73292368ffad34067cfe0422190fdff3bb505[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Apr 11 21:15:02 2022 +0000
+
+    database grunnur
+
+[33mcommit 57dff0d0dc39966cf1144efb771a7ac7e5ae219a[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Apr 11 21:11:24 2022 +0000
+
+    byrja á reservation / info
+
+[33mcommit c04f9d704cd240e045076a2085d0c4f2ed4be73e[m
+Merge: dafba8b f17276f
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Apr 11 20:27:24 2022 +0000
+
+    Merge branch 'main' of github.com:Bobbi11/HotelReservation
+
+[33mcommit dafba8b3a6bcd28a26a16efc431491d733c9ed9b[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Apr 11 20:27:15 2022 +0000
+
+    wúhu
+
+[33mcommit f17276fc7147d2bd2fe16b69b8835568f0a58052[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 22:22:51 2022 +0000
+
+    pdf v4
+
+[33mcommit ee16b63dc4885b3e287696208ffe15528ac1bd28[m
+Merge: 4b8dabf d0a5c2d
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Sun Mar 27 22:07:45 2022 +0000
+
+    Merge/comment
+
+[33mcommit 4b8dabfc430be4dd94d26d1ef4a383754219690d[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Sun Mar 27 22:06:35 2022 +0000
+
+    breytti getnaem í getPriceRating
+
+[33mcommit d0a5c2d28b07bd0b78490a713d815a5af2c8f9a5[m
+Merge: 28a8287 fb43e21
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 22:00:23 2022 +0000
+
+    Merge branch 'main' of https://github.com/Bobbi11/HotelReservation
+
+[33mcommit 28a8287951e4babee217f29d9f34fbe4f8333c1d[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 21:59:02 2022 +0000
+
+    v4
+
+[33mcommit f7618b87c3d61da2f092bd76432c4de07b9a94a8[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 21:58:23 2022 +0000
+
+    v4
+
+[33mcommit fb43e21301d815f67968d2fc3eff8b76542b079d[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Sun Mar 27 21:29:34 2022 +0000
+
+    breytti getnaem í getPriceRating
+
+[33mcommit 44476d595a510581f3e2c8719999f3e8ef5f032e[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Sun Mar 27 21:21:08 2022 +0000
+
+    Mock
+
+[33mcommit 6717a7c14c6323e421f586538d67f4630997a583[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Sun Mar 27 21:13:03 2022 +0000
+
+    Mock
+
+[33mcommit bc70ac9007a1b585bf31cc42f05594ee5facee29[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Sun Mar 27 20:44:34 2022 +0000
+
+    mock stöff
+
+[33mcommit c946c96f693a7ac04addd2f55cd6d03718c9e897[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 15:46:13 2022 +0000
+
+    asdfa
+
+[33mcommit a83b030773afc3c1ae30b51773d98d160d777ebb[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 15:45:53 2022 +0000
+
+    test fucked
+
+[33mcommit c13086d8406eeadf719887376d7050e29ff4ab8c[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Sun Mar 27 15:19:17 2022 +0000
+
+    JUnit ham JAR
+
+[33mcommit fa832c8a1f62de3c11dec8cf80ac552e7a5faafc[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Fri Mar 25 16:55:25 2022 +0000
+
+    veit ekki? mby í rétta átt
+
+[33mcommit 44a937c22586a95e9fc9b5609d063aa230670f5f[m
+Merge: c09f341 26169f3
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Fri Mar 25 15:26:04 2022 +0000
+
+    Merge branch 'main' of github.com:Bobbi11/HotelReservation
+
+[33mcommit 26169f38365f0c47d007c81e670872ed1dedeaa9[m
+Merge: 931f80a 127be65
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Fri Mar 25 13:12:43 2022 +0000
+
+    Merge branch 'main' of https://github.com/Bobbi11/HotelReservation
+
+[33mcommit c09f3419b79f690fa8b1cdfa9e5e92f371f9012c[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Fri Mar 25 13:08:44 2022 +0000
+
+    lítið
+
+[33mcommit 931f80acf45b38830055fd20bd90c438f321d33b[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Fri Mar 25 13:08:42 2022 +0000
+
+    schema
+
+[33mcommit 127be654d794f267c04051d2a6b3c52388dd0924[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Fri Mar 25 13:01:00 2022 +0000
+
+    taka til og byrja
+
+[33mcommit e186311047f3d25be4925f86ca7ebb2765bcd1a8[m
+Merge: a8cf5ea 5d6989b
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Fri Mar 25 12:31:32 2022 +0000
+
+    stuff
+
+[33mcommit a8cf5eae676ae613047052b206c5e94fdb22b6d1[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Fri Mar 25 12:30:17 2022 +0000
+
+    ?
+
+[33mcommit 5d6989ba02bc071fa8be579dc8718a84ed94d956[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Thu Mar 24 13:35:51 2022 +0000
+
+    info
+
+[33mcommit b42a13939183a9f31b14475a98d488d7816d63ca[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Thu Mar 24 13:35:27 2022 +0000
+
+    Bætti við reservatins og DataConnection
+
+[33mcommit 9aa7eacdf0461711ed290d36c4de51fed1ebbc7e[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Thu Mar 24 13:35:15 2022 +0000
+
+    info
+
+[33mcommit 41886d4dafc0da30fa73439ad7ac7f95f43eae4a[m
+Merge: 100c1cb 475f7fd
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Thu Mar 24 12:55:18 2022 +0000
+
+    Merge branch 'main' of github.com:Bobbi11/HotelReservation
+
+[33mcommit 475f7fd96a9738e4ed8ed1b1c7d84b45f47d7aa4[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Thu Mar 24 12:55:05 2022 +0000
+
+    mock data
+
+[33mcommit 100c1cb845e5385667d9b08186301258fa2407db[m
+Merge: 0662ae9 8fbbc65
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Thu Mar 24 12:54:51 2022 +0000
+
+    Merge branch 'main' of github.com:Bobbi11/HotelReservation
+
+[33mcommit 8fbbc654f2f0be15e8b944fdf51ed2ae3b092fc6[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Thu Mar 24 12:28:36 2022 +0000
+
+    sdf
+
+[33mcommit 0662ae9bb24c73154361a37cdf72e9e0a2c746d8[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 22:16:07 2022 +0000
+
+    Ehv?? veit ekki
+
+[33mcommit 6d95f6b7e1ec42ccfe6bb256a48562f888b6e9fc[m
+Merge: c6e15b2 cd20bdc
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Mar 21 22:10:43 2022 +0000
+
+    Merge branch 'main' of https://github.com/Bobbi11/HotelReservation
+
+[33mcommit cd20bdcc5c856fd01b9aedf195c4fc81345a1ca2[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 22:10:15 2022 +0000
+
+    bla
+
+[33mcommit c6e15b2750793998bbfb71346f36f775dd2f576e[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Mar 21 22:09:24 2022 +0000
+
+     asdfasdf
+
+[33mcommit 9277a96bd8b3f15b2618aad9f5dacb1a8beba66b[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 22:09:14 2022 +0000
+
+    Getters setters
+
+[33mcommit ba7e1d65f2e16e3d0e7ee965eef367c3f79650a6[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 22:05:15 2022 +0000
+
+    Fyrsta skrefið
+
+[33mcommit c8b43b07819c34ff800efebdc6c226a54d2ecdec[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 21:46:30 2022 +0000
+
+    refactor
+
+[33mcommit 03a85934635059f370e1ef682a8276c6eeb16876[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 21:45:32 2022 +0000
+
+    byrja á mock stuffi
+
+[33mcommit dc7dfe0879ed67b1705ee277bc4cd9fc1cfad79e[m
+Merge: 6b61e23 1abaedd
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 21:10:13 2022 +0000
+
+    bla
+
+[33mcommit 6b61e23800ca08d785e17517ab5637d8a4586c7f[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 21:09:41 2022 +0000
+
+    bla
+
+[33mcommit 1abaedddeb363428666da11d7f1557cea6bcc07b[m
+Author: ingadisv <102092465+ingadisv@users.noreply.github.com>
+Date:   Mon Mar 21 21:07:00 2022 +0000
+
+    Update prufa.txt
+
+[33mcommit ff6411aa727acdf5b8bfb2cf2fe13043ca0b94e4[m
+Author: Tludviksson <202111472@alu.comillas.edu>
+Date:   Mon Mar 21 22:05:33 2022 +0100
+
+    utskyring
+
+[33mcommit cf26b755c8e6c5911b5592ce1e51b4985aca32ae[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Mar 21 21:02:55 2022 +0000
+
+    prufu commit
+
+[33mcommit 1ce7fc6d51e88829dbffb68598d605ef64406144[m
+Merge: 2aff0b2 5c7d1a0
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Mar 21 21:01:20 2022 +0000
+
+    Merge branch 'main' of https://github.com/Bobbi11/HotelReservation
+
+[33mcommit 2aff0b2891538ff636c3252815be34bad8f6efeb[m
+Author: Ben-Ivars <60788806+Ben-Ivars@users.noreply.github.com>
+Date:   Mon Mar 21 21:00:14 2022 +0000
+
+    ignore dsstore
+
+[33mcommit 5c7d1a04e1d939dd4d284e3cf913e19866a97b1f[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 20:53:07 2022 +0000
+
+    reservation_controller
+
+[33mcommit 179d18b5ef3dc4c617c1822506827902438ac51b[m
+Author: Bobbi11 <bjarnihaukur11@gmail.com>
+Date:   Mon Mar 21 20:42:33 2022 +0000
+
+    folders
+
+[33mcommit 6ca90b205f22e6f4d7eb9b98750cd2a246f2819d[m
+Author: Bobbi11 <83522197+Bobbi11@users.noreply.github.com>
+Date:   Mon Mar 21 20:34:32 2022 +0000
+
+    Initial commit
