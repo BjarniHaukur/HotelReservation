@@ -6,16 +6,18 @@ public class Hotel {
 
     private Integer id;
     private String name;
-    private Integer starRating;
-    private Integer priceRating;
+    private Integer region;
+    private String address;
+    private String image; 
     private Info hotelInfo;
     private ArrayList<Room> rooms;
 
-    public Hotel(Integer id, String name, Integer starRating, Integer priceRating, Info hotelInfo) {
+    public Hotel(Integer id, String name, Integer region, String address, String image, Info hotelInfo) {
         this.id = id;
         this.name = name;
-        this.starRating = starRating;
-        this.priceRating = priceRating;
+        this.region = region;
+        this.address = address;
+        this.image = image;
         this.rooms = null;
         this.hotelInfo = hotelInfo;
     }
@@ -25,42 +27,58 @@ public class Hotel {
     }
 
     public Integer getId() {
-        return this.id;
-    }
+		return this.id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return this.name;
-    }
+	public String getName() {
+		return this.name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Integer getStarRating() {
-        return this.starRating;
-    }
+	public Integer getRegion() {
+		return this.region;
+	}
 
-    public void setStarRating(Integer starRating) {
-        this.starRating = starRating;
-    }
+	public void setRegion(Integer region) {
+		this.region = region;
+	}
 
-    public Integer getPriceRating() {
-        return this.priceRating;
-    }
+	public String getAddress() {
+		return this.address;
+	}
 
-    public void setPriceRating(Integer priceRating) {
-        this.priceRating = priceRating;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public ArrayList<Room> getRooms() {
-        return this.rooms;
-    }
+	public String getImage() {
+		return this.image;
+	}
 
-    public Info getInfo() {
-        return this.hotelInfo;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Info getHotelInfo() {
+		return this.hotelInfo;
+	}
+
+	public void setHotelInfo(Info hotelInfo) {
+		this.hotelInfo = hotelInfo;
+	}
+
+	public ArrayList<Room> getRooms() {
+		return this.rooms;
+	}
+
+	public void setRooms(ArrayList<Room> rooms) {
+		this.rooms = rooms;
+	}
 }
