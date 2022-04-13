@@ -97,6 +97,8 @@ public class HotelDataConnection {
         scriptReader.close();
     }
 
+    // SQL köll
+    
     public ArrayList<Hotel> getAllHotels() throws Exception{
         getConnection();
         Statement stmt = conn.createStatement();
@@ -112,6 +114,7 @@ public class HotelDataConnection {
     public Hotel getHotelById(int id) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
+        pstmt.setInt(1, id);
         ResultSet rs = pstmt.executeQuery();
         Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
         rs.close();
@@ -121,6 +124,7 @@ public class HotelDataConnection {
     public Integer getHotelIdByName(String name) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT id FROM HOTELS WHERE name = ?");
+        pstmt.setString(1, name);
         ResultSet rs = pstmt.executeQuery();
         Integer res = rs.getInt("id");
         rs.close();
