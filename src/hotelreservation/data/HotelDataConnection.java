@@ -3,6 +3,7 @@ package hotelreservation.data;
 import hotelreservation.entities.Hotel;
 import hotelreservation.entities.Room;
 import hotelreservation.entities.Info;
+import hotelreservation.entities.Reservation;
 
 import java.io.*;
 import java.sql.*;
@@ -146,9 +147,9 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    public Integer getPrice(Int hotelId, Int roomNum) throws Exception{
+    public Integer getPrice(Integer hotelId, Integer roomNum) throws Exception{
         getConnection();
-        PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM HOTELS WHERE hotelId = ? and roomNum = ?");
+        PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM ROOMS WHERE hotelId = ? and roomNum = ?");
         pstmt.setInt(1, hotelId); 
         pstmt.setInt(2, roomNum);
         ResultSet rs = pstmt.executeQuery();
