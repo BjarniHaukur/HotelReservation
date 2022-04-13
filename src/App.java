@@ -12,7 +12,10 @@ public class App {
         System.out.println("Hello World!");
         HotelDataConnection connection = HotelDataConnection.getInstance();
         // getAllHotels test
-
+        ArrayList<Hotel> allhotels = connection.getAllHotels();
+        for(Hotel hotel: allhotels){
+            System.out.println(hotel.toString());
+        }
         // getHotelById test
          Hotel hotel = connection.getHotelById(2);
          System.out.println(hotel.toString());
