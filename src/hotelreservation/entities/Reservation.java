@@ -29,7 +29,6 @@ public class Reservation implements Comparable<Reservation> {
         return 0;
     }
 
-
 	public String toString() {
 		String allInfo = "";
 		allInfo += "reservationId: " + this.reservationId + "\n";
@@ -43,44 +42,70 @@ public class Reservation implements Comparable<Reservation> {
 		return allInfo;
 	}
     
-    public Integer getReservationId() {
-		return this.reservationId;
-	}
-
-	public void setReservationId(Integer reservationId) {
-		this.reservationId = reservationId;
-	}
-
-	public Long getCreated() {
-		return this.created;
-	}
-
-	public void setCreated(Long created) {
-		this.created = created;
-	}
-
-	public Long getStartDate() {
-		return this.startDate;
-	}
-
-	public void setStartDate(Long startDate) {
-		this.startDate = startDate;
-	}
-
-	public Long getEndDate() {
-		return this.endDate;
-	}
-
-	public void setEndDate(Long endDate) {
-		this.endDate = endDate;
-	}
-
-	public String getContact() {
-		return this.contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
+    // Getters
+	public Integer getReservationId() {
+        return this.reservationId;
+    }
+    
+    public Long getCreated() {
+        return this.created;
+    }
+    
+    public Long getStartDate() {
+        return this.startDate;
+    }
+    
+    public Long getEndDate() {
+        return this.endDate;
+    }
+    
+    public String getCustomerName() {
+        return this.customerName;
+    }
+    
+    public String getCustomerEmail() {
+        return this.customerEmail;
+    }
+    
+    public String getCustomerPhoneNr() {
+        return this.customerPhoneNr;
+    }
+    
+    public Integer getNumCostumers() {
+        return this.numCostumers;
+    }
+    
+    // Setters
+    public void setReservationId(Integer reservationId) {
+        this.reservationId = reservationId;
+    }
+    
+    public void setCreated(Long created) {
+        this.created = created;
+    }
+    
+    public void setStartDate(Long startDate) {
+        this.startDate = startDate;
+    }
+    
+    public void setEndDate(Long endDate) {
+        this.endDate = endDate;
+    }
+    
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+    
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+    
+    public void setCustomerPhoneNr(String customerPhoneNr) {
+        this.customerPhoneNr = customerPhoneNr;
+    }
+    
+    public void setNumCostumers(Integer numCostumers) {
+        this.numCostumers = numCostumers;
+    }
 
 }
