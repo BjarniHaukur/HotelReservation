@@ -111,7 +111,7 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    public Hotel getHotelById(int id) throws Exception{
+    public Hotel getHotelById(Integer id) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
         pstmt.setInt(1, id);

@@ -1,5 +1,8 @@
 package hotelreservation.entities;
 
+import java.util.Date;  
+import java.text.SimpleDateFormat;  
+
 public class Reservation implements Comparable<Reservation> {
     
     private Integer reservationId;
@@ -26,7 +29,7 @@ public class Reservation implements Comparable<Reservation> {
  
     @Override
     public int compareTo(Reservation o) {
-        return 0;
+        return this.sdf.format(this.startDate).compareTo(this.sdf.format(o.getStartDate()));
     }
 
 	public String toString() {

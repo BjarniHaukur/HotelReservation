@@ -39,4 +39,5 @@ public class HotelTest {
         assertEquals((Integer) 4, hotelController.getHotelByID(2).getPriceRating());
         assertEquals((Integer) 5, hotelController.getHotelByID(3).getPriceRating());
     }
+
 }
