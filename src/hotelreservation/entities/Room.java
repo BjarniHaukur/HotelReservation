@@ -11,7 +11,7 @@ public class Room {
     private Boolean breakfast;
 
     public Room(Integer roomNum, Integer price, Integer numBeds, Integer capacity, Boolean breakfast) {
-        this.roomnum = roomNum;
+        this.roomNum = roomNum;
         this.price = price;
         this.numBeds = numBeds;
         this.capacity = capacity;
