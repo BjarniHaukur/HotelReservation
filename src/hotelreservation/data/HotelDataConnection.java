@@ -111,7 +111,6 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-
     public Hotel getHotelById(int id) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
@@ -122,7 +121,6 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-
     public Integer getHotelIdByName(String name) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT id FROM HOTELS WHERE name = ?");
@@ -133,16 +131,12 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-
-    public ArrayList<Room> getRoomsByHotel(int hotelId) throws Exception{
+    public Integer getReservationsByhotelId(VARCHAR hotelId) throws Exception{
         getConnection();
-        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ROOMS WHERE hotelId = ?");
-        pstmt.setInt(1, hotelId);
+        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM RESERVATIONS WHERE hotelId = ?");
+        pstmt.setString(1, hotelId);
         ResultSet rs = pstmt.executeQuery();
-        ArrayList<Room> res = new ArrayList<Room>();
-        while (rs.next()) {
-            res.add(new Room(rs.getInt("roomNum"),rs.getInt("price"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
-        }      
+        Integer res = rs.getInt("hotelId");
         rs.close();
         closeConnection();
         return res;
