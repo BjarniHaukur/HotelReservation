@@ -3,25 +3,25 @@ package hotelreservation.entities;
 public class Reservation implements Comparable<Reservation> {
     
     private Integer reservationId;
-    private Long created;
+    private String created;
     private String startDate;
     private String endDate;
 	private String customerName;
 	private String customerEmail;
-	private String customerPhoneNr;
-	private Integer numCostumers;
+	private String customerPhone;
+	private Integer numCustomers;
 
-    public Reservation(Integer reservationId, Long created, String startDate, String endDate,
-					   String customerName, String customerEmail, String customerPhoneNr,
-					   Integer numCostumers) {
+    public Reservation(Integer reservationId, String created, String startDate, String endDate,
+					   String customerName, String customerEmail, String customerPhone,
+					   Integer numCustomers) {
         this.reservationId = reservationId;
         this.created = created;
         this.startDate = startDate;
         this.endDate = endDate;
         this.customerName = customerName;
 		this.customerEmail = customerEmail;
-		this.customerPhoneNr = customerPhoneNr;
-		this.numCostumers = numCostumers;
+		this.customerPhone = customerPhone;
+		this.numCustomers = numCustomers;
     }
  
     @Override
@@ -37,26 +37,25 @@ public class Reservation implements Comparable<Reservation> {
 		allInfo += "endDate: " + this.endDate + "\n";
 		allInfo += "customerName: " + this.customerName + "\n";
 		allInfo += "customerEmail: " + this.customerEmail + "\n";
-		allInfo += "customerPhoneNr: " + this.customerPhoneNr + "\n";
-		allInfo += "numCostumers: " + this.numCostumers + "\n";
+		allInfo += "customerPhone: " + this.customerPhone + "\n";
+		allInfo += "numCustomers: " + this.numCustomers + "\n";
 		return allInfo;
 	}
     
-<<<<<<< HEAD
     // Getters
 	public Integer getReservationId() {
         return this.reservationId;
     }
     
-    public Long getCreated() {
+    public String getCreated() {
         return this.created;
     }
     
-    public Long getStartDate() {
+    public String getStartDate() {
         return this.startDate;
     }
     
-    public Long getEndDate() {
+    public String getEndDate() {
         return this.endDate;
     }
     
@@ -68,12 +67,12 @@ public class Reservation implements Comparable<Reservation> {
         return this.customerEmail;
     }
     
-    public String getCustomerPhoneNr() {
-        return this.customerPhoneNr;
+    public String getCustomerPhone() {
+        return this.customerPhone;
     }
     
-    public Integer getNumCostumers() {
-        return this.numCostumers;
+    public Integer getnumCustomers() {
+        return this.numCustomers;
     }
     
     // Setters
@@ -81,15 +80,15 @@ public class Reservation implements Comparable<Reservation> {
         this.reservationId = reservationId;
     }
     
-    public void setCreated(Long created) {
+    public void setCreated(String created) {
         this.created = created;
     }
     
-    public void setStartDate(Long startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
     
-    public void setEndDate(Long endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
     
@@ -101,53 +100,12 @@ public class Reservation implements Comparable<Reservation> {
         this.customerEmail = customerEmail;
     }
     
-    public void setCustomerPhoneNr(String customerPhoneNr) {
-        this.customerPhoneNr = customerPhoneNr;
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
     
-    public void setNumCostumers(Integer numCostumers) {
-        this.numCostumers = numCostumers;
+    public void setnumCustomers(Integer numCustomers) {
+        this.numCustomers = numCustomers;
     }
-=======
-    public Integer getReservationId() {
-		return this.reservationId;
-	}
-
-	public void setReservationId(Integer reservationId) {
-		this.reservationId = reservationId;
-	}
-
-	public Long getCreated() {
-		return this.created;
-	}
-
-	public void setCreated(Long created) {
-		this.created = created;
-	}
-
-	public Sring getStartDate() {
-		return this.startDate;
-	}
-
-	public void setStartDate(Long startDate) {
-		this.startDate = startDate;
-	}
-
-	public String getEndDate() {
-		return this.endDate;
-	}
-
-	public void setEndDate(Long endDate) {
-		this.endDate = endDate;
-	}
-
-	public String getContact() {
-		return this.contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
->>>>>>> ae1d53480c5ee3830cb85c024649cb13bfe538fa
 
 }

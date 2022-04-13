@@ -131,21 +131,25 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    // setja í reservation object
-    public Integer getReservationsByhotelId(Integer hotelId) throws Exception{
+    public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
         getConnection();
-        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM RESERVATIONS WHERE hotelId = ?");
+        PreparedStatement pstmt = conn.prepareStatement(
+            "SELECT reservationId, created, startDate, endDate, cName, cEmail, cPhone, numCustomers FROM RESERVATIONS WHERE hotelId = ?");
         pstmt.setInt(1, hotelId);
         ResultSet rs = pstmt.executeQuery();
-        Integer res = rs.getInt("hotelId");
+        ArrayList<Reservation> res = new ArrayList<Reservation>();
+        while (rs.next()) {
+            res.add(new Reservation(rs.getInt("reservationId"),rs.getString("created"),rs.getString("startDate"),rs.getString("endDate"),
+            rs.getString("cName"),rs.getString("cEmail"),rs.getString("cPhone"),rs.getInt("numCustomers")));
+        }
         rs.close();
         closeConnection();
         return res;
     }
-    public Integer getpriceByhotelIdandroomNum(Int hotelId, Int roomNum) throws Exception{
+    public Integer getPrice(Int hotelId, Int roomNum) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM HOTELS WHERE hotelId = ? and roomNum = ?");
-        pstmt.setInt(1, hotelId); // Veit ekki hvernig maður gerir 2 gæja hérna
+        pstmt.setInt(1, hotelId); 
         pstmt.setInt(2, roomNum);
         ResultSet rs = pstmt.executeQuery();
         Integer res = rs.getInt("price");
