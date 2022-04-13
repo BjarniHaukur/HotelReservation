@@ -131,10 +131,11 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    public Integer getReservationsByhotelId(VARCHAR hotelId) throws Exception{
+    // setja í reservation object
+    public Integer getReservationsByhotelId(Integer hotelId) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM RESERVATIONS WHERE hotelId = ?");
-        pstmt.setString(1, hotelId);
+        pstmt.setInt(1, hotelId);
         ResultSet rs = pstmt.executeQuery();
         Integer res = rs.getInt("hotelId");
         rs.close();
