@@ -111,7 +111,7 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    public Hotel getHotelById(int id) throws Exception{
+    public Hotel getHotelById(Integer id) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
         pstmt.setInt(1, id);
@@ -142,7 +142,7 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    public Integer getpriceByhotelIdandroomNum(Int hotelId, Int roomNum) throws Exception{
+    public Integer getpriceByhotelIdandroomNum(Integer hotelId, Integer roomNum) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM HOTELS WHERE hotelId = ? and roomNum = ?");
         pstmt.setInt(1, hotelId); // Veit ekki hvernig maður gerir 2 gæja hérna

@@ -35,7 +35,7 @@ public class Info {
         allInfo += this.spa? "spa\n": "";
         allInfo += this.wifi? "wifi\n": "";
         allInfo += this.bar? "bar\n": "";
-        allInfo += this.restaurant? "restaurant:\n": "";
+        allInfo += this.restaurant? "restaurant\n": "";
         if (allInfo.equals("")) {
             allInfo = "No info";
         }

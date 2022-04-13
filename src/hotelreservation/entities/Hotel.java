@@ -15,6 +15,7 @@ public class Hotel {
     public Hotel(Integer id, String name, Integer region, String address, String image, Info hotelInfo) {
         this.id = id;
         this.name = name;
+
         this.region = region;
         this.address = address;
         this.image = image;
