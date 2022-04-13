@@ -4,14 +4,14 @@ public class Reservation implements Comparable<Reservation> {
     
     private Integer reservationId;
     private Long created;
-    private Long startDate;
-    private Long endDate;
+    private String startDate;
+    private String endDate;
 	private String customerName;
 	private String customerEmail;
 	private String customerPhoneNr;
 	private Integer numCostumers;
 
-    public Reservation(Integer reservationId, Long created, Long startDate, Long endDate,
+    public Reservation(Integer reservationId, Long created, String startDate, String endDate,
 					   String customerName, String customerEmail, String customerPhoneNr,
 					   Integer numCostumers) {
         this.reservationId = reservationId;
@@ -42,6 +42,7 @@ public class Reservation implements Comparable<Reservation> {
 		return allInfo;
 	}
     
+<<<<<<< HEAD
     // Getters
 	public Integer getReservationId() {
         return this.reservationId;
@@ -107,5 +108,46 @@ public class Reservation implements Comparable<Reservation> {
     public void setNumCostumers(Integer numCostumers) {
         this.numCostumers = numCostumers;
     }
+=======
+    public Integer getReservationId() {
+		return this.reservationId;
+	}
+
+	public void setReservationId(Integer reservationId) {
+		this.reservationId = reservationId;
+	}
+
+	public Long getCreated() {
+		return this.created;
+	}
+
+	public void setCreated(Long created) {
+		this.created = created;
+	}
+
+	public Sring getStartDate() {
+		return this.startDate;
+	}
+
+	public void setStartDate(Long startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return this.endDate;
+	}
+
+	public void setEndDate(Long endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getContact() {
+		return this.contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+>>>>>>> ae1d53480c5ee3830cb85c024649cb13bfe538fa
 
 }

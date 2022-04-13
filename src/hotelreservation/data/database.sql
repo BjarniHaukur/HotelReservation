@@ -4,6 +4,8 @@ CREATE TABLE HOTELS (
     region INT NOT NULL,
     address VARCHAR(64) COLLATE NOCASE,
     image VARCHAR(32),
+    starRating INT NOT NULL,
+    priceRating INT NOT NULL,
     gym BOOLEAN DEFAULT FALSE,
     spa BOOLEAN DEFAULT FALSE,
     wifi BOOLEAN DEFAULT FALSE,
@@ -15,6 +17,7 @@ CREATE TABLE ROOMS (
     roomNum INT NOT NULL,
     hotelId INT NOT NULL,
     price INT NOT NULL,
+    type INT NOT NULL,
     numBeds INT NOT NULL,
     capacity INT NOT NULL,
     breakfast BOOLEAN DEFAULT FALSE,
@@ -26,8 +29,8 @@ CREATE TABLE ROOMS (
 CREATE TABLE RESERVATIONS (
     reservationId VARCHAR(128) NOT NULL,
     created BIGINT NOT NULL,
-    startDate BIGINT NOT NULL,
-    endDate BIGINT NOT NULL,
+    startDate VARCHAR(10) NOT NULL,
+    endDate VARCHAR(10) NOT NULL,
     contact VARCHAR(32) NOT NULL,
     hotelId VARCHAR(32) NOT NULL COLLATE NOCASE,
     roomNum INT NOT NULL,
@@ -45,14 +48,14 @@ CREATE TABLE REVIEWS (
     , FOREIGN KEY(Hname) REFERENCES HOTELS(name)
 );
 
-INSERT INTO HOTELS VALUES(1,'The Plaza Hotel',3,'768 Fifth Avenue','plaza.jpg',FALSE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(2,'Bates Motel',2,'1054 272nd Street','bates.jpg',FALSE,FALSE,FALSE,TRUE,FALSE);
-INSERT INTO HOTELS VALUES(3,'Park Hyatt',4,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',TRUE,TRUE,TRUE,TRUE,FALSE);
-INSERT INTO HOTELS VALUES(4,'The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',FALSE,FALSE,TRUE,FALSE,TRUE);
-INSERT INTO HOTELS VALUES(5,"Caesar's Palace",1,'3570 S Las Vegas Blvd','caesar.jpg',TRUE,FALSE,TRUE,TRUE,FALSE);
-INSERT INTO HOTELS VALUES(6,'Grand Budapest Hotel',2,'Garlitzer Warenhaus Department Store','budapest.jpg',FALSE,FALSE,TRUE,FALSE,FALSE);
-INSERT INTO HOTELS VALUES(7,'Seminole Ritz Hotel',3,'1500 Orange Ave','seminole.jpg',TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(8,'Beverly Wilshire',4,'9500 Wilshire Blvd','wilshire.jpg',TRUE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(1,'The Plaza Hotel',3,'768 Fifth Avenue','plaza.jpg',5,3,FALSE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(2,'Bates Motel',2,'1054 272nd Street','bates.jpg',3,1,FALSE,FALSE,FALSE,TRUE,FALSE);
+INSERT INTO HOTELS VALUES(3,'Park Hyatt',4,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',4,3,TRUE,TRUE,TRUE,TRUE,FALSE);
+INSERT INTO HOTELS VALUES(4,'The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',4,2,FALSE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(5,"Caesar's Palace",1,'3570 S Las Vegas Blvd','caesar.jpg',5,3,TRUE,FALSE,TRUE,TRUE,FALSE);
+INSERT INTO HOTELS VALUES(6,'Grand Budapest Hotel',2,'Garlitzer Warenhaus Department Store','budapest.jpg',1,1,FALSE,FALSE,TRUE,FALSE,FALSE);
+INSERT INTO HOTELS VALUES(7,'Seminole Ritz Hotel',3,'1500 Orange Ave','seminole.jpg',3,2,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(8,'Beverly Wilshire',4,'9500 Wilshire Blvd','wilshire.jpg',3,1,TRUE,FALSE,TRUE,FALSE,TRUE);
 
 
 --PLAZA
