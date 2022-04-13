@@ -6,31 +6,42 @@ public class Reservation implements Comparable<Reservation> {
     private Long created;
     private Long startDate;
     private Long endDate;
-    private String contact;
+	private String customerName;
+	private String customerEmail;
+	private String customerPhoneNr;
+	private Integer numCostumers;
 
-    public Reservation(Integer reservationId, Long created, Long startDate, Long endDate, String contact)  {
+    public Reservation(Integer reservationId, Long created, Long startDate, Long endDate,
+					   String customerName, String customerEmail, String customerPhoneNr,
+					   Integer numCostumers) {
         this.reservationId = reservationId;
         this.created = created;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.contact = contact;
+        this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.customerPhoneNr = customerPhoneNr;
+		this.numCostumers = numCostumers;
     }
-
+ 
     @Override
     public int compareTo(Reservation o) {
-        return (int)(o.getDateFrom() - this.getDateFrom());
+        return 0;
     }
 
-    public String getAllString() {
-        String allInfo = "";
-        allInfo += "Date from: " + this.dateFrom + "\n";
-        allInfo += "Date to: " + this.dateTo + "\n";
-        allInfo += "Customer name: " + this.customerName + "\n";
-        allInfo += "Customer email: " + this.customerEmail + "\n";
-        allInfo += "Customer phone nr: " + this.customerPhoneNr + "\n";
-        allInfo += "Number of costumers: " + this.numCostumers + "\n";
-        return allInfo;
-    }
+
+	public String toString() {
+		String allInfo = "";
+		allInfo += "reservationId: " + this.reservationId + "\n";
+		allInfo += "created: " + this.created + "\n";
+		allInfo += "startDate: " + this.startDate + "\n";
+		allInfo += "endDate: " + this.endDate + "\n";
+		allInfo += "customerName: " + this.customerName + "\n";
+		allInfo += "customerEmail: " + this.customerEmail + "\n";
+		allInfo += "customerPhoneNr: " + this.customerPhoneNr + "\n";
+		allInfo += "numCostumers: " + this.numCostumers + "\n";
+		return allInfo;
+	}
     
     public Integer getReservationId() {
 		return this.reservationId;

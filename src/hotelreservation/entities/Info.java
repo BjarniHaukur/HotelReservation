@@ -20,23 +20,17 @@ public class Info {
         this.restaurant = restaurant;
     }
 
-    public String getInfoString() {
+    // To string
+    public String toString() {
         String allInfo = "";
-        allInfo += "Gym: " + this.gym + "\n";
-        allInfo += "Spa: " + this.spa + "\n";
-        allInfo += "wifi: " + this.wifi + "\n";
-        allInfo += "Bar: " + this.bar + "\n";
-        allInfo += "Restaurant: " + this.restaurant + "\n";
+        allInfo += this.gym? "gym\n": "";
+        allInfo += this.spa? "spa\n": "";
+        allInfo += this.wifi? "wifi\n": "";
+        allInfo += this.bar? "bar\n": "";
+        allInfo += this.restaurant? "restaurant:\n": "";
+        if (allInfo.equals("")) {
+            allInfo = "No info";
+        }
         return allInfo;
     }
-
-    public static void main(String args[]) {
-        System.out.println("Hello World!");
-        Info inf = new Info(true, true, true, true, true);
-        HotelController hc = HotelController.getInstance();
-        System.out.println(hc.bla());
-        System.out.println(inf.getInfoString());
-        
-    }
-
 }
