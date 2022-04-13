@@ -18,6 +18,17 @@ public class Room {
         this.breakfast = breakfast;
     }
 
+    // To string
+    public String toString() {
+        String allInfo = "";
+        allInfo += "roomNum: " + this.roomNum + "\n";
+        allInfo += "price: " + this.price + "\n";
+        allInfo += "numBeds: " + this.numBeds + "\n";
+        allInfo += "capacity: " + this.capacity + "\n";
+        allInfo += "breakfast: " + this.breakfast + "\n";
+        return allInfo;
+    }
+
 
     /**
      * Checks whether the room is available for the given date range.
