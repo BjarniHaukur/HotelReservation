@@ -5,8 +5,9 @@
         minibar
         hotel id (java)
         þarf að laga sql skra, db, og java
-- [ ] Bæta við í Hotel:
+- [x] Bæta við í Hotel:
         stars
+        pricerating
         þarf að laga sql skra, db, og java
 - [x] Laga reservations:
         varchar

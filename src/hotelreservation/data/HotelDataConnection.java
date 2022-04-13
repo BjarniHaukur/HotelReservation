@@ -105,7 +105,7 @@ public class HotelDataConnection {
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS");
         ArrayList<Hotel> res = new ArrayList<Hotel>();
         while (rs.next()) {
-            res.add(new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"))));
+            res.add(new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"))));
         }
         rs.close();
         closeConnection();
@@ -116,7 +116,7 @@ public class HotelDataConnection {
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
         pstmt.setInt(1, id);
         ResultSet rs = pstmt.executeQuery();
-        Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
+        Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
         rs.close();
         closeConnection();
         return res;
