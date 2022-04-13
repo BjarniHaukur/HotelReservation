@@ -146,8 +146,9 @@ public class HotelDataConnection {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM HOTELS WHERE hotelId = ? and roomNum = ?");
         pstmt.setInt(1, hotelId); // Veit ekki hvernig maður gerir 2 gæja hérna
+        pstmt.setInt(2, roomNum);
         ResultSet rs = pstmt.executeQuery();
-        Integer res = rs.getInt("hotelId");
+        Integer res = rs.getInt("price");
         rs.close();
         closeConnection();
         return res;
