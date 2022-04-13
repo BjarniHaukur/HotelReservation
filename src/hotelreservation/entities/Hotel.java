@@ -21,6 +21,16 @@ public class Hotel {
         this.rooms = null;
         this.hotelInfo = hotelInfo;
     }
+	// TODO bæta við info í string aðferð
+	public String toString() {
+        String allInfo = "";
+        allInfo += "id: " + this.id + "\n";
+        allInfo += "name: " + this.name + "\n";
+        allInfo += "region: " + this.region + "\n";
+        allInfo += "address: " + this.address + "\n";
+        allInfo += "image: " + this.image + "\n";
+        return allInfo;
+    }
 
     public void addRoom(Room newRoom) {
         rooms.add(newRoom);

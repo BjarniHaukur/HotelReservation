@@ -97,6 +97,8 @@ public class HotelDataConnection {
         scriptReader.close();
     }
 
+    // SQL köll
+    
     public ArrayList<Hotel> getAllHotels() throws Exception{
         getConnection();
         Statement stmt = conn.createStatement();
