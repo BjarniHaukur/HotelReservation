@@ -2,6 +2,7 @@ package hotelreservation.data;
 
 import hotelreservation.entities.Hotel;
 import hotelreservation.entities.Room;
+import hotelreservation.entities.Info;
 
 import java.io.*;
 import java.sql.*;
@@ -73,7 +74,7 @@ public class HotelDataConnection {
             // the application, the getResourceAsStream method is used
             scriptStream = Thread.currentThread().getContextClassLoader().
                     getResourceAsStream("META-INF/initialize.sql");
-            BufferedReader scriptReader = new BufferedReader(new FileReader(current + "/src/hotelreservation/data/database.sql"));
+            BufferedReader scriptReader = new BufferedReader(new FileReader(current + "/hotelreservation/data/database.sql"));
             String nextLine;
             StringBuffer nextStatement = new StringBuffer();
 
