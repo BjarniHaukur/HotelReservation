@@ -29,6 +29,7 @@ public class Hotel {
         allInfo += "region: " + this.region + "\n";
         allInfo += "address: " + this.address + "\n";
         allInfo += "image: " + this.image + "\n";
+		allInfo += hotelInfo.toString();
         return allInfo;
     }
 

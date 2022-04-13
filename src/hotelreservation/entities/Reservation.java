@@ -4,14 +4,14 @@ public class Reservation implements Comparable<Reservation> {
     
     private Integer reservationId;
     private Long created;
-    private Long startDate;
-    private Long endDate;
+    private String startDate;
+    private String endDate;
 	private String customerName;
 	private String customerEmail;
 	private String customerPhoneNr;
 	private Integer numCostumers;
 
-    public Reservation(Integer reservationId, Long created, Long startDate, Long endDate,
+    public Reservation(Integer reservationId, Long created, String startDate, String endDate,
 					   String customerName, String customerEmail, String customerPhoneNr,
 					   Integer numCostumers) {
         this.reservationId = reservationId;
@@ -59,7 +59,7 @@ public class Reservation implements Comparable<Reservation> {
 		this.created = created;
 	}
 
-	public Long getStartDate() {
+	public Sring getStartDate() {
 		return this.startDate;
 	}
 
@@ -67,7 +67,7 @@ public class Reservation implements Comparable<Reservation> {
 		this.startDate = startDate;
 	}
 
-	public Long getEndDate() {
+	public String getEndDate() {
 		return this.endDate;
 	}
 
