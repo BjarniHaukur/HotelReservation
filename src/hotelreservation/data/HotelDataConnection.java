@@ -25,7 +25,7 @@ public class HotelDataConnection {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        finally{
+        finally {
             closeConnection();
         }
     }
