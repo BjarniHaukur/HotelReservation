@@ -35,8 +35,14 @@ public class App {
         //  Integer price = connection.getPrice(1,101);
         //  System.out.println("Price of Room 101 at Hotel 1: " + price + "kr");
 
-        // sortAllRoomsByPrice test
-        ArrayList<Room> rooms = connection.sortAllRoomsByPrice();
+        // // sortAllRoomsByPrice test
+        // ArrayList<Room> rooms = connection.sortAllRoomsByPrice();
+        // for(Room room: rooms){
+        //     System.out.println(room.toString());
+        // }
+
+        // sortAllRoomsByStars test
+        ArrayList<Room> rooms = connection.sortAllRoomsByStars();
         for(Room room: rooms){
             System.out.println(room.toString());
         }
