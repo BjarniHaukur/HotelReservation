@@ -1,7 +1,7 @@
 import java.sql.SQLException;
 import hotelreservation.controllers.HotelController;
 import hotelreservation.data.HotelDataConnection;
-// import hotelreservation.entities.*;
+import hotelreservation.entities.Room;
 import java.util.ArrayList;
 
 public class App {
@@ -31,8 +31,15 @@ public class App {
         //     System.out.println(resv.toString());
         // }
 
-        // getPrice test
-         Integer price = connection.getPrice(1,101);
-         System.out.println("Price of Room 101 at Hotel 1: " + price + "kr");
+        // // getPrice test
+        //  Integer price = connection.getPrice(1,101);
+        //  System.out.println("Price of Room 101 at Hotel 1: " + price + "kr");
+
+        // sortAllRoomsByPrice test
+        ArrayList<Room> rooms = connection.sortAllRoomsByPrice();
+        for(Room room: rooms){
+            System.out.println(room.toString());
+        }
+
     }
 }

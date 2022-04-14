@@ -158,6 +158,32 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
+
+    public ArrayList<Room> sortAllRoomsByPrice() throws Exception {
+        getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM ROOMS ORDER BY price DESC");
+        ArrayList<Room> res = new ArrayList<Room>();
+        while (rs.next()) {
+            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
+        }
+        rs.close();
+        closeConnection();
+        return res;
+    }
+
+    public ArrayList<Room> sortAllRoomsByStars() throws Exception {
+        getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS JOIN ROOMS WHERE id = hotelId ORDER BY starRating DESC");
+        ArrayList<Room> res = new ArrayList<Room>();
+        while (rs.next()) {
+            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
+        }
+        rs.close();
+        closeConnection();
+        return res;
+    }
     // Get bookings by hotel
     // Get Rooms by hotel
     // Get hotel id by name

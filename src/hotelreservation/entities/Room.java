@@ -5,14 +5,19 @@ import java.util.ArrayList;
 public class Room {
 
     private Integer roomNum;
+    private Integer hotelId;
     private Integer price;
+    private Integer type;
     private Integer numBeds;
     private Integer capacity;
     private Boolean breakfast;
 
-    public Room(Integer roomNum, Integer price, Integer numBeds, Integer capacity, Boolean breakfast) {
+
+    public Room(Integer roomNum, Integer hotelId, Integer price, Integer type, Integer numBeds, Integer capacity, Boolean breakfast) {
         this.roomNum = roomNum;
+        this.hotelId = hotelId;
         this.price = price;
+        this.type = type;
         this.numBeds = numBeds;
         this.capacity = capacity;
         this.breakfast = breakfast;
@@ -21,19 +26,29 @@ public class Room {
     public String toString() {
         String allInfo = "";
         allInfo += "Room Number: " + this.roomNum + "\n";
-        allInfo += "price: " + this.price + "\n";
+        allInfo += "Hotel ID: " + this.hotelId + "\n";
+        allInfo += "Price: " + this.price + "\n";
+        allInfo += "Room Type: " + this.type + "\n";
         allInfo += "Number of beds: " + this.numBeds + "\n";
         allInfo += "Capacity: " + this.capacity + "\n";
         allInfo += "Breakfast: " + this.breakfast + "\n";
         return allInfo;
     }
 
-	public Integer getRoomNum() {
+    public Integer getRoomNum() {
 		return this.roomNum;
 	}
 
 	public void setRoomNum(Integer roomNum) {
 		this.roomNum = roomNum;
+	}
+
+	public Integer getHotelId() {
+		return this.hotelId;
+	}
+
+	public void setHotelId(Integer hotelId) {
+		this.hotelId = hotelId;
 	}
 
 	public Integer getPrice() {
@@ -42,6 +57,14 @@ public class Room {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public Integer getType() {
+		return this.type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
 	}
 
 	public Integer getNumBeds() {
