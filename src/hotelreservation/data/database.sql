@@ -52,14 +52,14 @@ CREATE TABLE REVIEWS (
     , FOREIGN KEY(Hname) REFERENCES HOTELS(name)
 );
 
-INSERT INTO HOTELS VALUES(1,'The Plaza Hotel',3,'768 Fifth Avenue','plaza.jpg',5,3,FALSE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(2,'Bates Motel',2,'1054 272nd Street','bates.jpg',3,1,FALSE,FALSE,FALSE,TRUE,FALSE);
-INSERT INTO HOTELS VALUES(3,'Park Hyatt',4,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',4,3,TRUE,TRUE,TRUE,TRUE,FALSE);
-INSERT INTO HOTELS VALUES(4,'The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',4,2,FALSE,FALSE,TRUE,FALSE,TRUE);
-INSERT INTO HOTELS VALUES(5,"Caesar's Palace",1,'3570 S Las Vegas Blvd','caesar.jpg',5,3,TRUE,FALSE,TRUE,TRUE,FALSE);
-INSERT INTO HOTELS VALUES(6,'Grand Budapest Hotel',2,'Garlitzer Warenhaus Department Store','budapest.jpg',1,1,FALSE,FALSE,TRUE,FALSE,FALSE);
-INSERT INTO HOTELS VALUES(7,'Seminole Ritz Hotel',3,'1500 Orange Ave','seminole.jpg',3,2,TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(8,'Beverly Wilshire',4,'9500 Wilshire Blvd','wilshire.jpg',3,1,TRUE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(1,'The Plaza Hotel',3,'768 Fifth Avenue','plaza.jpg',5,3,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(2,'Bates Motel',2,'1054 272nd Street','bates.jpg',3,1,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE);
+INSERT INTO HOTELS VALUES(3,'Park Hyatt',4,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',4,3,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(4,'The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',4,2,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(5,"Caesar's Palace",1,'3570 S Las Vegas Blvd','caesar.jpg',5,3,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(6,'Grand Budapest Hotel',2,'Garlitzer Warenhaus Department Store','budapest.jpg',1,1,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(7,'Seminole Ritz Hotel',3,'1500 Orange Ave','seminole.jpg',3,2,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(8,'Beverly Wilshire',4,'9500 Wilshire Blvd','wilshire.jpg',3,1,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE);
 
 
 --PLAZA
