@@ -1,7 +1,7 @@
 import java.sql.SQLException;
 import hotelreservation.controllers.HotelController;
 import hotelreservation.data.HotelDataConnection;
-import hotelreservation.entities.Room;
+import hotelreservation.entities.*;
 import java.util.ArrayList;
 
 public class App {
@@ -15,9 +15,9 @@ public class App {
         // for(Hotel hotel: allhotels){
         //     System.out.println(hotel.toString());
         // }
-        // // getHotelById test
-        //  Hotel hotel = connection.getHotelById(2);
-        //  System.out.println(hotel.toString());
+        // getHotelById test
+         Hotel hotel = connection.getHotelById(8);
+         System.out.println(hotel.toString());
          
         // // getHotelByName
         //  Integer bevid = connection.getHotelIdByName("Beverly Wilshire");
@@ -41,11 +41,11 @@ public class App {
         //     System.out.println(room.toString());
         // }
 
-        // sortAllRoomsByStars test
-        ArrayList<Room> rooms = connection.sortAllRoomsByStars();
-        for(Room room: rooms){
-            System.out.println(room.toString());
-        }
+        // // sortAllRoomsByStars test
+        // ArrayList<Room> rooms = connection.sortAllRoomsByStars();
+        // for(Room room: rooms){
+        //     System.out.println(room.toString());
+        // }
 
     }
 }

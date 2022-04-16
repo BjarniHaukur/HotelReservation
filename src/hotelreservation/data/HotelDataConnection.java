@@ -136,7 +136,7 @@ public class HotelDataConnection {
     public ArrayList<Integer> getHotelIdByStarRating(Integer starRating) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT id FROM HOTELS WHERE starRating = ?");
-        pstmt.setString(1, starRating);
+        pstmt.setInt(1, starRating);
         ResultSet rs = pstmt.executeQuery();
         ArrayList<Integer> res = new ArrayList<Integer>();
         while (rs.next()) {
