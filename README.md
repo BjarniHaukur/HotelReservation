@@ -1,6 +1,20 @@
 # HotelReservation
 Þróun hugbúnaðar bókunarkerfi
 
+
+
+# Notes
+
+
+location í streng ?
+landsfjórðungur + bær
+
+
+
+
+
+
+
 ### before running test
 
 ```
