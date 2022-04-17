@@ -3,7 +3,8 @@ import java.sql.SQLException;
 import hotelreservation.controllers.HotelController;
 
 import java.text.SimpleDateFormat;  
-import java.util.Date;  
+import java.util.Date;
+import hotelreservation.entities.*;  
 
 public class main {
     public static void main(String args[]) throws Exception {  

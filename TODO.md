@@ -1,6 +1,6 @@
 # SQL statements
 ## Benedikt
-- [ ] Bæta við í rooms:
+- [x] Bæta við í rooms:
         tengund
         minibar
         hotel id (java)
@@ -14,19 +14,13 @@
 ## Bjarni
 - [ ] Reservations
 ## Inga
-- [ ] get price for hotelId,roomNum
+- [x] get price for hotelId,roomNum
 ## Þorri
 - [ ]
 
 
-Bæta við í Hotel:
-    stars
-    þarf að laga sql skra, db, og java
-
-hotel search controller
-    leitum í java
-    get all hotels -->
-
-FILTERS:
-    if info true (java)
+JAVA FILTERS:
+- filter by array of possible star ratings
+        - t.d. [1,2,3] gets all 1, 2 and 3 star hotels
+        - use getHotelIdByStarRating(Integer starRating) to get all x star Hotels and append together
 
