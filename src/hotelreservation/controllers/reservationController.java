@@ -19,24 +19,16 @@ public class ReservationController {
         return instance;
     }
 
-    public ArrayList<Reservation> getAllReservations(Integer hotelID, Integer roomNumber) throws SQLException {
-        return null; //connection.getAllHotels();
+    public ArrayList<Reservation> getAllReservations() throws Exception {
+        return connection.getAllReservations();
     }
 
-    // tests, generateað af CoPilot :O
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello World!");
-        // getAllHotels test
-
-        // getHotelById test
-        Hotel hotel = connection.getHotelById(2);
-        System.out.println(hotel.toString());
-         
-        // getHotelByName
-        Integer bevid = connection.getHotelIdByName("Beverly Wilshire");
-        System.out.println("Beverly Wilshire id: " + bevid + "\n");
-        Hotel bevHotel = connection.getHotelById(bevid);
-        System.out.println(bevHotel.toString());
+        // get and print all reservations
+        ArrayList<Reservation> reservations = connection.getAllReservations();
+        for (Reservation r : reservations) {
+            System.out.println(r);
+        }
 
     }
 

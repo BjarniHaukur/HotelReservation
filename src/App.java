@@ -27,11 +27,10 @@ public class App {
         //  Hotel bevHotel = connection.getHotelById(bevid);
         //  System.out.println(bevHotel.toString());
         
-        // // getAllReservations test
-        // ArrayList<Reservation> allresv = connection.getReservationsByhotelId(1);
-        // for(Reservation resv: allresv){
-        //     System.out.println(resv.toString());
-        // }
+        ArrayList<Reservation> allresv = connection.getAllReservations();
+        for(Reservation resv: allresv){
+            System.out.println(resv.toString());
+        }
 
         // // getPrice test
         //  Integer price = connection.getPrice(1,101);

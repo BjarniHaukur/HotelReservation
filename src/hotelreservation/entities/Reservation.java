@@ -1,11 +1,12 @@
 package hotelreservation.entities;
 
-import java.util.Date;  
 import java.text.SimpleDateFormat;  
 
 public class Reservation implements Comparable<Reservation> {
-    
-    private Integer reservationId;
+     
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+    private String reservationId;
     private String created;
     private String startDate;
     private String endDate;
@@ -13,10 +14,14 @@ public class Reservation implements Comparable<Reservation> {
 	private String customerEmail;
 	private String customerPhone;
 	private Integer numCustomers;
+    private Integer roomNum;
+    private Integer hotelId;
+    
+    
 
-    public Reservation(Integer reservationId, String created, String startDate, String endDate,
+    public Reservation(String reservationId, String created, String startDate, String endDate,
 					   String customerName, String customerEmail, String customerPhone,
-					   Integer numCustomers) {
+					   Integer numCustomers, Integer roomNum, Integer hotelId) {
         this.reservationId = reservationId;
         this.created = created;
         this.startDate = startDate;
@@ -25,6 +30,8 @@ public class Reservation implements Comparable<Reservation> {
 		this.customerEmail = customerEmail;
 		this.customerPhone = customerPhone;
 		this.numCustomers = numCustomers;
+        this.roomNum = roomNum;
+        this.hotelId = hotelId;
     }
  
     @Override
@@ -46,7 +53,7 @@ public class Reservation implements Comparable<Reservation> {
 	}
     
     // Getters
-	public Integer getReservationId() {
+	public String getReservationId() {
         return this.reservationId;
     }
     
@@ -77,9 +84,17 @@ public class Reservation implements Comparable<Reservation> {
     public Integer getnumCustomers() {
         return this.numCustomers;
     }
+
+    public Integer getHotelId() {
+        return this.hotelId;
+    }
+
+    public Integer getRoomNum() {
+        return this.roomNum;
+    }
     
     // Setters
-    public void setReservationId(Integer reservationId) {
+    public void setReservationId(String reservationId) {
         this.reservationId = reservationId;
     }
     
@@ -109,6 +124,14 @@ public class Reservation implements Comparable<Reservation> {
     
     public void setnumCustomers(Integer numCustomers) {
         this.numCustomers = numCustomers;
+    }
+
+    public void setHotelId(Integer hotelId) {
+        this.hotelId = hotelId;
+    }
+
+    public void setRoomNum(Integer roomNum) {
+        this.roomNum = roomNum;
     }
 
 }

@@ -98,13 +98,7 @@ public class HotelDataConnection {
         scriptReader.close();
     }
 
-    // SQL köll
-    // Hotels
-    //TODO spa should be pool
-    public ArrayList<Hotel> getAllHotels() throws Exception{
-        getConnection();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS");
+    private ArrayList<Hotel> readHotels(ResultSet rs) throws Exception {
         ArrayList<Hotel> res = new ArrayList<Hotel>();
         while (rs.next()) {
             res.add(new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"))));
@@ -113,7 +107,40 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
-    public Hotel getHotelById(Integer id) throws Exception{
+
+    private ArrayList<Reservation> readReservations(ResultSet rs) throws Exception {
+        ArrayList<Reservation> res = new ArrayList<Reservation>();
+        while (rs.next()) {
+            res.add(new Reservation(rs.getString("reservationId"),rs.getString("created"),rs.getString("startDate"),rs.getString("endDate"),
+            rs.getString("cName"),rs.getString("cEmail"),rs.getString("cPhone"),rs.getInt("numCustomers"),rs.getInt("hotelId"),rs.getInt("roomNum")));
+        }
+        rs.close();
+        closeConnection();
+        return res;
+    }
+
+    private ArrayList<Room> readRooms(ResultSet rs) throws Exception {
+        ArrayList<Room> res = new ArrayList<Room>();
+        while (rs.next()) {
+            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
+        }
+        rs.close();
+        closeConnection();
+        return res;
+    }
+
+
+
+    // SQL köll
+    // Hotels
+    //TODO spa should be pool
+    public ArrayList<Hotel> getAllHotels() throws Exception {
+        getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS");
+        return readHotels(rs);
+    }
+    public Hotel getHotelById(Integer id) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
         pstmt.setInt(1, id);
@@ -134,28 +161,19 @@ public class HotelDataConnection {
         return res;
     }
 
-    public ArrayList<Integer> getHotelIdByStarRating(Integer starRating) throws Exception {
+    public ArrayList<Hotel> getHotelsByStarRating(Integer starRating) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT id FROM HOTELS WHERE starRating = ?");
         pstmt.setInt(1, starRating);
         ResultSet rs = pstmt.executeQuery();
-        ArrayList<Integer> res = new ArrayList<Integer>();
-        while (rs.next()) {
-            res.add(rs.getInt("id"));
-        }
-        rs.close();
-        closeConnection();
-        return res;
+        return readHotels(rs);
     }
 
-    // public Hotel updateHotel(Integer id, String key, String/Integer value) throws Exception{
-    //    
-    // }
 
     public void createHotel(Hotel hotel) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("INSERT INTO HOTELS VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
-        pstmt.setInt(1, hotel.getId());
+        pstmt.setInt(1,hotel.getId());
         pstmt.setString(2,hotel.getName());
         pstmt.setInt(3,hotel.getRegion());
         pstmt.setString(4,hotel.getAddress());
@@ -174,27 +192,27 @@ public class HotelDataConnection {
 
 
     // Reservations
-    public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
-        getConnection();
-        PreparedStatement pstmt = conn.prepareStatement(
-            "SELECT reservationId, created, startDate, endDate, cName, cEmail, cPhone, numCustomers FROM RESERVATIONS WHERE hotelId = ?");
-        pstmt.setInt(1, hotelId);
-        ResultSet rs = pstmt.executeQuery();
-        ArrayList<Reservation> res = new ArrayList<Reservation>();
-        while (rs.next()) {
-            res.add(new Reservation(rs.getInt("reservationId"),rs.getString("created"),rs.getString("startDate"),rs.getString("endDate"),
-            rs.getString("cName"),rs.getString("cEmail"),rs.getString("cPhone"),rs.getInt("numCustomers")));
-        }
-        rs.close();
-        closeConnection();
-        return res;
-    }
+    // public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
+    //     getConnection();
+    //     PreparedStatement pstmt = conn.prepareStatement(
+    //         "SELECT reservationId, created, startDate, endDate, cName, cEmail, cPhone, numCustomers FROM RESERVATIONS WHERE hotelId = ?");
+    //     pstmt.setInt(1, hotelId);
+    //     ResultSet rs = pstmt.executeQuery();
+    //     ArrayList<Reservation> res = new ArrayList<Reservation>();
+    //     while (rs.next()) {
+    //         res.add(new Reservation(rs.getInt("reservationId"),rs.getString("created"),rs.getString("startDate"),rs.getString("endDate"),
+    //         rs.getString("cName"),rs.getString("cEmail"),rs.getString("cPhone"),rs.getInt("numCustomers")));
+    //     }
+    //     rs.close();
+    //     closeConnection();
+    //     return res;
+    // }
 
-    public void createReservation(Integer hotelId, Integer roomNum, Reservation resv) throws Exception{
+    public void logReservation(Integer hotelId, Integer roomNum, Reservation resv) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
             "INSERT INTO RESERVATIONS(?,?,?,?,?,?,?,?,?,?)");
-        pstmt.setInt(1, resv.getReservationId());
+        pstmt.setString(1, resv.getReservationId());
         pstmt.setString(2,resv.getCreated());
         pstmt.setString(3,resv.getStartDate());
         pstmt.setString(4,resv.getEndDate());
@@ -206,7 +224,6 @@ public class HotelDataConnection {
         pstmt.setInt(10,roomNum);
         pstmt.executeUpdate();
         closeConnection();
-        return res;
     }
 
     // Rooms
@@ -226,27 +243,42 @@ public class HotelDataConnection {
         getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM ROOMS ORDER BY price DESC");
-        ArrayList<Room> res = new ArrayList<Room>();
-        while (rs.next()) {
-            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
-        }
-        rs.close();
-        closeConnection();
-        return res;
+        return readRooms(rs);
     }
 
     public ArrayList<Room> sortAllRoomsByStars() throws Exception {
         getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS JOIN ROOMS WHERE id = hotelId ORDER BY starRating DESC");
-        ArrayList<Room> res = new ArrayList<Room>();
-        while (rs.next()) {
-            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
-        }
-        rs.close();
-        closeConnection();
-        return res;
+        return readRooms(rs);
     }
+
+    // reservationId VARCHAR(128) NOT NULL,
+    // created VARCHAR(10) NOT NULL,
+    // startDate VARCHAR(10) NOT NULL,
+    // endDate VARCHAR(10) NOT NULL,
+    // cName VARCHAR(64) NOT NULL,
+    // cEmail VARCHAR(64) NOT NULL,
+    // cPhone VARCHAR(64) NOT NULL,
+    // numCustomers INT NOT NULL,
+    // hotelId INT NOT NULL,
+    // roomNum INT NOT NULL,
+
+  
+    public ArrayList<Reservation> getAllReservations() throws Exception{
+        getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM RESERVATIONS");
+        return readReservations(rs);
+    }
+
+    public ArrayList<Reservation> getAllReservationsForHotel() throws Exception{
+        getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM RESERVATIONS");
+        return readReservations(rs);
+    }
+
 
     // Get bookings by hotel
     // Get Rooms by hotel
