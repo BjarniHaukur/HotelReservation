@@ -8,7 +8,7 @@ public class Hotel {
     private String name;
     private Integer region;
     private String address;
-    private String image; 
+    private String image;
     private Info hotelInfo;
     private ArrayList<Room> rooms;
 
@@ -18,16 +18,16 @@ public class Hotel {
         this.region = region;
         this.address = address;
         this.image = image;
-        this.rooms = null;
         this.hotelInfo = hotelInfo;
+        this.rooms = null;
     }
 
 	public String toString() {
         String allInfo = "";
-        allInfo += "id: " + this.id + "\n";
-        allInfo += "name: " + this.name + "\n";
-        allInfo += "region: " + this.region + "\n";
-        allInfo += "address: " + this.address + "\n";
+        allInfo += "Hotel ID: " + this.id + "\n";
+        allInfo += "Hotel name: " + this.name + "\n";
+        allInfo += "Region: " + this.region + "\n";
+        allInfo += "Address: " + this.address + "\n";
         allInfo += "image: " + this.image + "\n";
 		allInfo += hotelInfo.toString();
         return allInfo;

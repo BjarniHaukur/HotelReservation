@@ -100,13 +100,14 @@ public class HotelDataConnection {
 
     // SQL köll
     // Hotels
+    //TODO spa should be pool
     public ArrayList<Hotel> getAllHotels() throws Exception{
         getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS");
         ArrayList<Hotel> res = new ArrayList<Hotel>();
         while (rs.next()) {
-            res.add(new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"),rs.getBoolean("breakfast"))));
+            res.add(new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"))));
         }
         rs.close();
         closeConnection();
@@ -117,7 +118,7 @@ public class HotelDataConnection {
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
         pstmt.setInt(1, id);
         ResultSet rs = pstmt.executeQuery();
-        Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"), rs.getInt("region"), rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"),rs.getBoolean("breakfast")));
+        Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
         rs.close();
         closeConnection();
         return res;
@@ -147,6 +148,31 @@ public class HotelDataConnection {
         return res;
     }
 
+    // public Hotel updateHotel(Integer id, String key, String/Integer value) throws Exception{
+    //    
+    // }
+
+    public void createHotel(Hotel hotel) throws Exception{
+        getConnection();
+        PreparedStatement pstmt = conn.prepareStatement("INSERT INTO HOTELS VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+        pstmt.setInt(1, hotel.getId());
+        pstmt.setString(2,hotel.getName());
+        pstmt.setInt(3,hotel.getRegion());
+        pstmt.setString(4,hotel.getAddress());
+        pstmt.setString(5,hotel.getImage());
+        pstmt.setInt(6,hotel.getHotelInfo().getStarRating());
+        pstmt.setInt(7,hotel.getHotelInfo().getPriceRating());
+        pstmt.setBoolean(8,hotel.getHotelInfo().getGym());
+        pstmt.setBoolean(9,hotel.getHotelInfo().getSpa());
+        pstmt.setBoolean(10,hotel.getHotelInfo().getWifi());
+        pstmt.setBoolean(11,hotel.getHotelInfo().getBar());
+        pstmt.setBoolean(12,hotel.getHotelInfo().getRestaurant());
+        pstmt.executeUpdate();
+        closeConnection();
+    }
+
+
+
     // Reservations
     public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
         getConnection();
@@ -160,6 +186,25 @@ public class HotelDataConnection {
             rs.getString("cName"),rs.getString("cEmail"),rs.getString("cPhone"),rs.getInt("numCustomers")));
         }
         rs.close();
+        closeConnection();
+        return res;
+    }
+
+    public void createReservation(Integer hotelId, Integer roomNum, Reservation resv) throws Exception{
+        getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(
+            "INSERT INTO RESERVATIONS(?,?,?,?,?,?,?,?,?,?)");
+        pstmt.setInt(1, resv.getReservationId());
+        pstmt.setString(2,resv.getCreated());
+        pstmt.setString(3,resv.getStartDate());
+        pstmt.setString(4,resv.getEndDate());
+        pstmt.setString(5,resv.getCustomerName());
+        pstmt.setString(6,resv.getCustomerEmail());
+        pstmt.setString(7,resv.getCustomerPhone());
+        pstmt.setInt(8,resv.getnumCustomers());
+        pstmt.setInt(9,hotelId);
+        pstmt.setInt(10,roomNum);
+        pstmt.executeUpdate();
         closeConnection();
         return res;
     }

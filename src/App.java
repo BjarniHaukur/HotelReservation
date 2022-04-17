@@ -2,6 +2,7 @@ import java.sql.SQLException;
 import hotelreservation.controllers.HotelController;
 import hotelreservation.data.HotelDataConnection;
 import hotelreservation.entities.*;
+import java.text.SimpleDateFormat;  
 import java.util.ArrayList;
 
 public class App {
@@ -9,15 +10,16 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         System.out.println("Hello World!");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         HotelDataConnection connection = HotelDataConnection.getInstance();
         // // getAllHotels test
         // ArrayList<Hotel> allhotels = connection.getAllHotels();
         // for(Hotel hotel: allhotels){
         //     System.out.println(hotel.toString());
         // }
-        // getHotelById test
-         Hotel hotel = connection.getHotelById(8);
-         System.out.println(hotel.toString());
+        // // getHotelById test
+        //  Hotel hotel = connection.getHotelById(8);
+        //  System.out.println(hotel.toString());
          
         // // getHotelByName
         //  Integer bevid = connection.getHotelIdByName("Beverly Wilshire");
@@ -46,6 +48,10 @@ public class App {
         // for(Room room: rooms){
         //     System.out.println(room.toString());
         // }
-
+        // // Create Hotel test
+        // Hotel baron = new Hotel(9,"name",1,"address","image",new Info(5,3,true,true,true,true,true));
+        // connection.createHotel(baron);
+        // Hotel hotel = connection.getHotelById(9);
+        // System.out.println(hotel.toString());
     }
 }
