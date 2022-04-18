@@ -10,17 +10,15 @@ public class Room {
     private Integer type;
     private Integer numBeds;
     private Integer capacity;
-    private Boolean breakfast;
 
 
-    public Room(Integer roomNum, Integer hotelId, Integer price, Integer type, Integer numBeds, Integer capacity, Boolean breakfast) {
+    public Room(Integer roomNum, Integer hotelId, Integer price, Integer type, Integer numBeds, Integer capacity) {
         this.roomNum = roomNum;
         this.hotelId = hotelId;
         this.price = price;
         this.type = type;
         this.numBeds = numBeds;
         this.capacity = capacity;
-        this.breakfast = breakfast;
     }
 
     public String toString() {
@@ -31,7 +29,6 @@ public class Room {
         allInfo += "Room Type: " + this.type + "\n";
         allInfo += "Number of beds: " + this.numBeds + "\n";
         allInfo += "Capacity: " + this.capacity + "\n";
-        allInfo += "Breakfast: " + this.breakfast + "\n";
         return allInfo;
     }
 
@@ -81,14 +78,6 @@ public class Room {
 
 	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
-	}
-
-	public Boolean getBreakfast() {
-		return this.breakfast;
-	}
-
-	public void setBreakfast(Boolean breakfast) {
-		this.breakfast = breakfast;
 	}
 
 

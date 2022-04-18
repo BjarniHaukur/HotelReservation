@@ -10,13 +10,20 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         System.out.println("Hello World!");
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         HotelDataConnection connection = HotelDataConnection.getInstance();
-        // // getAllHotels test
-        // ArrayList<Hotel> allhotels = connection.getAllHotels();
-        // for(Hotel hotel: allhotels){
-        //     System.out.println(hotel.toString());
+
+
+        // ArrayList<Reservation> rooms = connection.getRoomReservations(2, 101);
+        // for (Reservation r : rooms) {
+        //     System.out.println(r);
         // }
+        // getAllHotels test
+        // System.out.println(connection.getPrice(2, 101));
+        ArrayList<Hotel> allhotels = connection.getAllHotels();
+        for(Hotel hotel: allhotels){
+            System.out.println(hotel);
+        }
         // // getHotelById test
         //  Hotel hotel = connection.getHotelById(8);
         //  System.out.println(hotel.toString());
@@ -27,10 +34,13 @@ public class App {
         //  Hotel bevHotel = connection.getHotelById(bevid);
         //  System.out.println(bevHotel.toString());
         
-        ArrayList<Reservation> allresv = connection.getAllReservations();
-        for(Reservation resv: allresv){
-            System.out.println(resv.toString());
-        }
+        // ArrayList<Reservation> allresv = connection.getAllReservations();
+        // ArrayList<Reservation> allresv = connection.getRoomReservations(101,1);
+        // for(Reservation resv: allresv){
+        //     // System.out.println(connection.getRoomReservations(resv.getHotelId(), resv.getRoomNum()));
+        //     // break;
+        //     System.out.println(resv);
+        // }
 
         // // getPrice test
         //  Integer price = connection.getPrice(1,101);

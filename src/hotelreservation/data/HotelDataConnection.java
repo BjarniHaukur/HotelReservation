@@ -101,7 +101,7 @@ public class HotelDataConnection {
     private ArrayList<Hotel> readHotels(ResultSet rs) throws Exception {
         ArrayList<Hotel> res = new ArrayList<Hotel>();
         while (rs.next()) {
-            res.add(new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"))));
+            res.add(new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("town"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant"))));
         }
         rs.close();
         closeConnection();
@@ -122,7 +122,7 @@ public class HotelDataConnection {
     private ArrayList<Room> readRooms(ResultSet rs) throws Exception {
         ArrayList<Room> res = new ArrayList<Room>();
         while (rs.next()) {
-            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity"),rs.getBoolean("breakfast")));
+            res.add(new Room(rs.getInt("roomNum"),rs.getInt("hotelId"),rs.getInt("price"),rs.getInt("type"),rs.getInt("numBeds"),rs.getInt("capacity")));
         }
         rs.close();
         closeConnection();
@@ -145,7 +145,7 @@ public class HotelDataConnection {
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
         pstmt.setInt(1, id);
         ResultSet rs = pstmt.executeQuery();
-        Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("address"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
+        Hotel res = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("town"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
         rs.close();
         closeConnection();
         return res;
@@ -176,37 +176,30 @@ public class HotelDataConnection {
         pstmt.setInt(1,hotel.getId());
         pstmt.setString(2,hotel.getName());
         pstmt.setInt(3,hotel.getRegion());
-        pstmt.setString(4,hotel.getAddress());
+        pstmt.setString(4,hotel.getTown());
         pstmt.setString(5,hotel.getImage());
-        pstmt.setInt(6,hotel.getHotelInfo().getStarRating());
-        pstmt.setInt(7,hotel.getHotelInfo().getPriceRating());
-        pstmt.setBoolean(8,hotel.getHotelInfo().getGym());
-        pstmt.setBoolean(9,hotel.getHotelInfo().getSpa());
-        pstmt.setBoolean(10,hotel.getHotelInfo().getWifi());
-        pstmt.setBoolean(11,hotel.getHotelInfo().getBar());
-        pstmt.setBoolean(12,hotel.getHotelInfo().getRestaurant());
+        Info info = hotel.getHotelInfo();
+        pstmt.setInt(6,info.getStarRating());
+        pstmt.setInt(7,info.getPriceRating());
+        pstmt.setBoolean(8,info.getGym());
+        pstmt.setBoolean(9,info.getSpa());
+        pstmt.setBoolean(10,info.getWifi());
+        pstmt.setBoolean(11,info.getBar());
+        pstmt.setBoolean(12,info.getRestaurant());
         pstmt.executeUpdate();
         closeConnection();
     }
 
 
 
-    // Reservations
-    // public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
-    //     getConnection();
-    //     PreparedStatement pstmt = conn.prepareStatement(
-    //         "SELECT reservationId, created, startDate, endDate, cName, cEmail, cPhone, numCustomers FROM RESERVATIONS WHERE hotelId = ?");
-    //     pstmt.setInt(1, hotelId);
-    //     ResultSet rs = pstmt.executeQuery();
-    //     ArrayList<Reservation> res = new ArrayList<Reservation>();
-    //     while (rs.next()) {
-    //         res.add(new Reservation(rs.getInt("reservationId"),rs.getString("created"),rs.getString("startDate"),rs.getString("endDate"),
-    //         rs.getString("cName"),rs.getString("cEmail"),rs.getString("cPhone"),rs.getInt("numCustomers")));
-    //     }
-    //     rs.close();
-    //     closeConnection();
-    //     return res;
-    // }
+    public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
+        getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(
+            "SELECT reservationId, created, startDate, endDate, cName, cEmail, cPhone, numCustomers FROM RESERVATIONS WHERE hotelId = ?");
+        pstmt.setInt(1, hotelId);
+        ResultSet rs = pstmt.executeQuery();
+        return readReservations(rs);
+    }
 
     public void logReservation(Integer hotelId, Integer roomNum, Reservation resv) throws Exception{
         getConnection();
@@ -252,18 +245,6 @@ public class HotelDataConnection {
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS JOIN ROOMS WHERE id = hotelId ORDER BY starRating DESC");
         return readRooms(rs);
     }
-
-    // reservationId VARCHAR(128) NOT NULL,
-    // created VARCHAR(10) NOT NULL,
-    // startDate VARCHAR(10) NOT NULL,
-    // endDate VARCHAR(10) NOT NULL,
-    // cName VARCHAR(64) NOT NULL,
-    // cEmail VARCHAR(64) NOT NULL,
-    // cPhone VARCHAR(64) NOT NULL,
-    // numCustomers INT NOT NULL,
-    // hotelId INT NOT NULL,
-    // roomNum INT NOT NULL,
-
   
     public ArrayList<Reservation> getAllReservations() throws Exception{
         getConnection();
@@ -272,10 +253,14 @@ public class HotelDataConnection {
         return readReservations(rs);
     }
 
-    public ArrayList<Reservation> getAllReservationsForHotel() throws Exception{
+    public ArrayList<Reservation> getRoomReservations(Integer hotelID, Integer roomNum) throws Exception{
         getConnection();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM RESERVATIONS");
+        PreparedStatement pstmt = conn.prepareStatement(
+            "SELECT * FROM RESERVATIONS WHERE (hotelId = ? AND roomNum = ?)"
+        );
+        pstmt.setInt(1, hotelID);
+        pstmt.setInt(2, roomNum);
+        ResultSet rs = pstmt.executeQuery();
         return readReservations(rs);
     }
 

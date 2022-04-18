@@ -23,6 +23,11 @@ public class ReservationController {
         return connection.getAllReservations();
     }
 
+    public boolean isAvailable(int hotelId, int roomId, String startDate, String endDate) throws Exception {
+        ArrayList<Reservation> reservations = connection.getRoomReservations(hotelId, roomId);
+        return connection.isAvailable(hotelId, roomId, startDate, endDate);
+    }
+
     public static void main(String[] args) throws Exception {
         // get and print all reservations
         ArrayList<Reservation> reservations = connection.getAllReservations();

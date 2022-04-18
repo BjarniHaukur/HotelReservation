@@ -7,16 +7,16 @@ public class Hotel {
     private Integer id;
     private String name;
     private Integer region;
-    private String address;
+    private String town;
     private String image;
     private Info hotelInfo;
     private ArrayList<Room> rooms;
 
-    public Hotel(Integer id, String name, Integer region, String address, String image, Info hotelInfo) {
+    public Hotel(Integer id, String name, Integer region, String town, String image, Info hotelInfo) {
         this.id = id;
         this.name = name;
         this.region = region;
-        this.address = address;
+        this.town = town;
         this.image = image;
         this.hotelInfo = hotelInfo;
         this.rooms = null;
@@ -27,7 +27,7 @@ public class Hotel {
         allInfo += "Hotel ID: " + this.id + "\n";
         allInfo += "Hotel name: " + this.name + "\n";
         allInfo += "Region: " + this.region + "\n";
-        allInfo += "Address: " + this.address + "\n";
+        allInfo += "Town: " + this.town + "\n";
         allInfo += "image: " + this.image + "\n";
 		allInfo += hotelInfo.toString();
         return allInfo;
@@ -61,12 +61,12 @@ public class Hotel {
 		this.region = region;
 	}
 
-	public String getAddress() {
-		return this.address;
+	public String getTown() {
+		return this.town;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setTown(String town) {
+		this.town = town;
 	}
 
 	public String getImage() {

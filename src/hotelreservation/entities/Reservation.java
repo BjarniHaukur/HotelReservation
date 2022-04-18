@@ -1,5 +1,6 @@
 package hotelreservation.entities;
 
+import java.util.Date;
 import java.text.SimpleDateFormat;  
 
 public class Reservation implements Comparable<Reservation> {
@@ -36,7 +37,29 @@ public class Reservation implements Comparable<Reservation> {
  
     @Override
     public int compareTo(Reservation o) {
-        return this.sdf.format(this.startDate).compareTo(this.sdf.format(o.getStartDate()));
+        try {
+            Date t1 = this.sdf.parse(this.startDate);
+            Date t2 = this.sdf.parse(this.endDate);
+            Date o1 = this.sdf.parse(o.getStartDate());
+            Date o2 = this.sdf.parse(o.getEndDate());
+            
+            if (t1.compareTo(o1) >= 0 && t1.compareTo(o2) <= 0) {
+                return -1;
+            } 
+            if (t2.compareTo(o1) >= 0 && t2.compareTo(o2) <= 0) {
+                return -1;
+            }
+            if (o1.compareTo(t1) >= 0 && o1.compareTo(t2) <= 0) {
+                return 1;
+            }
+            if (o2.compareTo(t1) >= 0 && o2.compareTo(t2) <= 0) {
+                return 1;
+            }
+            return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
 	public String toString() {
@@ -49,6 +72,8 @@ public class Reservation implements Comparable<Reservation> {
 		allInfo += "customerEmail: " + this.customerEmail + "\n";
 		allInfo += "customerPhone: " + this.customerPhone + "\n";
 		allInfo += "numCustomers: " + this.numCustomers + "\n";
+        allInfo += "roomNum: " + this.roomNum + "\n";
+        allInfo += "hotelId: " + this.hotelId + "\n";
 		return allInfo;
 	}
     
