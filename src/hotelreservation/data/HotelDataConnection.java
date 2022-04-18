@@ -297,6 +297,11 @@ public class HotelDataConnection {
         closeConnection();
     }
 
+    /**
+     * Delete reservation from database
+     * @param resID Reservation ID of reservation to delete
+     * @throws Exception
+     */
     public void removeReservation(String resID) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
@@ -306,7 +311,13 @@ public class HotelDataConnection {
         closeConnection();
     }
 
-    // Rooms
+    /**
+     * Get price of specific room
+     * @param hotelId ID of hotel that room is at
+     * @param roomNum Room number of room 
+     * @return price as Integer
+     * @throws Exception
+     */
     public Integer getPrice(Integer hotelId, Integer roomNum) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM ROOMS WHERE hotelId = ? and roomNum = ?");
@@ -319,13 +330,13 @@ public class HotelDataConnection {
         return res;
     }
 
-    public ArrayList<Room> sortAllRoomsByPrice() throws Exception {
-        getConnection();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM ROOMS ORDER BY price DESC");
-        return readRooms(rs);
-    }
-
+    /**
+     * Get specific hotel room
+     * @param hotelId id of hotel 
+     * @param roomNum room number
+     * @return Room
+     * @throws Exception
+     */
     public Room getRoomByIds(Integer hotelId, Integer roomNum) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ROOMS WHERE hotelId = ? and roomNum = ?");
@@ -338,6 +349,12 @@ public class HotelDataConnection {
         return res;
     }
 
+    /**
+     * Get all rooms at a specific hotel
+     * @param hotelId id of hotel
+     * @return ArrayList<Room>
+     * @throws Exception
+     */
     public ArrayList<Room> getRoomsByHotelId(Integer hotelId) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ROOMS WHERE hotelId = ?");
@@ -346,13 +363,24 @@ public class HotelDataConnection {
         return readRooms(rs);
     }
 
+    /**
+     * Get all rooms at a specific hotel sorted by star rating
+     * @param hotelId id of hotel
+     * @return ArrayList<Room>
+     * @throws Exception
+     */
     public ArrayList<Room> sortAllRoomsByStars() throws Exception {
         getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS JOIN ROOMS WHERE id = hotelId ORDER BY starRating DESC");
         return readRooms(rs);
     }
-  
+    
+    /**
+     * Get all reservations in database
+     * @return ArrayList<Reservation>
+     * @throws Exception
+     */
     public ArrayList<Reservation> getAllReservations() throws Exception{
         getConnection();
         Statement stmt = conn.createStatement();
@@ -360,6 +388,13 @@ public class HotelDataConnection {
         return readReservations(rs);
     }
 
+    /**
+     * Get all reservations for specific hotel room
+     * @param hotelID ID of hotel
+     * @param roomNum room number of hotel room
+     * @return ArrayList<Reservation>
+     * @throws Exception
+     */
     public ArrayList<Reservation> getRoomReservations(Integer hotelID, Integer roomNum) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
@@ -370,33 +405,5 @@ public class HotelDataConnection {
         ResultSet rs = pstmt.executeQuery();
         return readReservations(rs);
     }
-
-    // public ArrayList<Hotel> getAvailableHotels(Integer id, Integer maxNum) throws Exception {
-    //     getConnection();
-    //     PreparedStatement pstmt = conn.prepareStatement(
-    //         "select id,name,sum(capacity) from hotels join rooms where hotelId = ? group by ?"
-    //     );
-    //     pstmt.setInt(1, id);
-    //     pstmt.setInt(2, id);
-    //     ResultSet rs = pstmt.executeQuery();
-    //     ArrayList<Hotel> hotels = new ArrayList<Hotel>();
-    //     while (rs.next()) {
-    //         Hotel hotel = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("town"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
-    //         Integer sum = rs.getInt("sum(capacity)");
-    //         if (sum <= maxNum) {
-    //             hotels.add(hotel);
-    //         }
-    //     }
-    //     return hotels;
-    // }
-
-
-    // Get bookings by hotel
-    // Get Rooms by hotel
-    // Get hotel id by name
-    // Get Rooms by hotel name
-    // is Room booked?
-    // Get room info by roommnr and hotel name/id
-    //
 
 }
