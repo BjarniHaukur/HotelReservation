@@ -1,6 +1,5 @@
 package hotelreservation.controllers;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import hotelreservation.data.HotelDataConnection;
@@ -23,24 +22,33 @@ public class ReservationController {
         return connection.getAllReservations();
     }
 
+    public ArrayList<Reservation> getRoomReservations(Integer hotelID, Integer roomNum) throws Exception {
+        return connection.getRoomReservations(hotelID, roomNum);
+    }
+
     public boolean isAvailable(int hotelId, int roomId, String startDate, String endDate) throws Exception {
         Reservation mockReservation = new Reservation("", "", startDate, endDate, "", "", "", 0, roomId, hotelId);
         ArrayList<Reservation> reservations = connection.getRoomReservations(hotelId, roomId);
         for (Reservation res: reservations) {
             if (res.compareTo(mockReservation) != 0) {
                 return false;
-            }))
+            }
         }
-        return connection.isAvailable(hotelId, roomId, startDate, endDate);
+        return true;
     }
 
-    public static void main(String[] args) throws Exception {
-        // get and print all reservations
-        ArrayList<Reservation> reservations = connection.getAllReservations();
-        for (Reservation r : reservations) {
-            System.out.println(r);
-        }
+    public void addReservation(Reservation res) throws Exception {
+        if (isAvailable(res.getHotelId(), res.getRoomNum(), res.getStartDate(), res.getEndDate())) {
+            Room room = connection.getRoomByIds(res.getHotelId(), res.getRoomNum());
+            if (res.getNumCustomers() <= room.getCapacity())
+                connection.logReservation(res);
+            else throw new Exception("Room is not large enough for the number of customers");
 
+        } else throw new Exception("Room is not available");
+    }
+
+    public void removeReservations(String resID) throws Exception {
+        connection.removeReservation(resID);
     }
 
 }

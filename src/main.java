@@ -10,7 +10,7 @@ public class main {
     public static void main(String args[]) throws Exception {  
         String sDate1="31/12/1998";  
         String sDate2="31/12/2000";  
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date1 = sdf.parse(sDate1);
         Date date2 = sdf.parse(sDate2);  
         System.out.println(date1);  

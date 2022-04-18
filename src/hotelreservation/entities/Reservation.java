@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class Reservation implements Comparable<Reservation> {
      
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     private String reservationId;
     private String created;
@@ -22,7 +22,7 @@ public class Reservation implements Comparable<Reservation> {
 
     public Reservation(String reservationId, String created, String startDate, String endDate,
 					   String customerName, String customerEmail, String customerPhone,
-					   Integer numCustomers, Integer roomNum, Integer hotelId) {
+					   Integer numCustomers, Integer hotelId, Integer roomNum) {
         this.reservationId = reservationId;
         this.created = created;
         this.startDate = startDate;
@@ -106,7 +106,7 @@ public class Reservation implements Comparable<Reservation> {
         return this.customerPhone;
     }
     
-    public Integer getnumCustomers() {
+    public Integer getNumCustomers() {
         return this.numCustomers;
     }
 
@@ -147,7 +147,7 @@ public class Reservation implements Comparable<Reservation> {
         this.customerPhone = customerPhone;
     }
     
-    public void setnumCustomers(Integer numCustomers) {
+    public void setNumCustomers(Integer numCustomers) {
         this.numCustomers = numCustomers;
     }
 
