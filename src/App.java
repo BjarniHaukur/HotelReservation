@@ -21,14 +21,19 @@ public class App {
         // System.out.println(sdf.parse(bla));
 
         HotelController hotelController = HotelController.getInstance();
-        // ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        ArrayList<Hotel> hotels = hotelController.getAllHotels();
         // for (Hotel hotel : hotels) {
         //     System.out.println(hotel);
         // }
-        ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
-        for (Hotel hotel : hotels) {
+        String[] gildi = {"gym","wifi","breakfast"};
+        ArrayList<Hotel> avhotels = hotelController.filterByInfo(hotels,gildi);
+        for (Hotel hotel : avhotels) {
             System.out.println(hotel);
         }
+        // ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
+        // for (Hotel hotel : hotels) {
+        //     System.out.println(hotel);
+        // }
     }
 
     // public static void main(String[] args) throws Exception{

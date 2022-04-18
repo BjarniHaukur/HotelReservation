@@ -54,10 +54,24 @@ public class HotelController {
         ReservationController reservController = ReservationController.getInstance();
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
-            //asldkfj
+            Boolean check = true;
+            for (int i = 0; i < gildi.length; i++) {
+                if(gildi[i].contains("gym") && !hotel.getHotelInfo().getGym()){
+                    check = false;
+                }
+                if(gildi[i].contains("wifi") && !hotel.getHotelInfo().getWifi()){
+                    check = false;
+                }
+                if(gildi[i].contains("breakfast") && !hotel.getHotelInfo().getRestaurant()){
+                    check = false;
+                }
+            }
+            if(check){
+                availableHotels.add(hotel);
+            }
 
         }
-
+        return availableHotels;
     }
 
     public Hotel getHotelByID(Integer ID) throws Exception {
