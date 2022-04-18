@@ -249,7 +249,7 @@ public class HotelDataConnection {
     public void removeReservation(String resID) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
-            "DELETE FROM RESERVATIONS WHERE reservationID = ?");
+            "DELETE FROM RESERVATIONS WHERE reservationId = ?");
         pstmt.setString(1, resID);
         pstmt.executeUpdate();
         closeConnection();

@@ -27,6 +27,14 @@ public class HotelController {
         return connection.getAllHotels();
     }
 
+    /**
+     * @param location: the location in which we want to search for hotels
+     * @param numCustomers: the number of customers that we want to accomodate, i.e. the
+     * minimum amount of accommodation we need to have
+     * @param startDate: the start date of the interval in which we want to search for hotels
+     * @param endDate: the end date of the interval in which we want to search for hotels
+     * @return an ArrayList of Hotels which fit these criteria
+     */
     public ArrayList<Hotel> getAllAvailableHotels(Integer location, Integer numCustomers, LocalDate from, LocalDate to) throws Exception {
         ReservationController reservController = ReservationController.getInstance();
         String fromString = from.toString();
@@ -48,44 +56,16 @@ public class HotelController {
         return availableHotels;
     }
 
-    // public ArrayList<Hotel> filterHotelsByInfo(ArrayList<Hotel> hotels, String[] constr) throws Exception {
-    //     ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
-
-    //     for (Hotel hotel : hotels) {
-    //         boolean add = false;
-    //         for (String s: constr) {
-    //             if (s.contains(" ")) {
-    //                 if (s.charAt(0) == hotel.getHotelInfo().getStarRating()) {
-    //                     add = true;  
-    //                 }
-    //             } else {
-    //                 if (s.equals("Gym") && !hotel.getHotelInfo().getGym()) {
-    //                     add = false;
-    //                     break;
-    //                 }
-    //                 else if (s.equals("WiFi") && !hotel.getHotelInfo().getWifi()) {
-    //                     add = false;
-    //                     break;
-    //                 }
-    //                 else if (s.equals("Breakfast") && !hotel.getHotelInfo().getRestaurant()) {
-    //                     add = false;
-    //                     break;
-    //                 }
-    //             }
-    //         }
-    //         if (add) {
-    //             availableHotels.add(hotel);
-    //         }
-    //     }
-    //     return availableHotels;
-    // }
-
-    public ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] gildi) throws Exception {
-        ReservationController reservController = ReservationController.getInstance();
+    /**
+     * @param hotels: the ArrayList of Hotels we are filtering
+     * @param consts: an array of Strings which correspond to boolean criteria for filtering
+     * @return the ArrayList of Hotels after filtering
+     */
+    public ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] constrs) throws Exception {
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
             Boolean check = true;
-            for (String s: gildi) {
+            for (String s: constrs) {
                 if(s.contains("gym") && !hotel.getHotelInfo().getGym()){
                     check = false;
                 }
