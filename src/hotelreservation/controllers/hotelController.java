@@ -115,7 +115,7 @@ public class HotelController {
         return filterByInfo(filterByStars(hotels, stars), info);
     }
 
-        public ArrayList<Hotel> getAllHotels() throws Exception {
+    public ArrayList<Hotel> getAllHotels() throws Exception {
         return connection.getAllHotels();
     }
 

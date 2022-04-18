@@ -32,6 +32,9 @@ public class App {
         // }
         HotelController hotelController = HotelController.getInstance();
         ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        for (Hotel hotel : hotels) {
+            System.out.println(hotel);
+        }
         // ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
         String[] info = {"gym","wifi","breakfast"};
         Integer[] stars = {5,3};
