@@ -7,11 +7,7 @@ import hotelreservation.entities.Reservation;
 
 import java.io.*;
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class HotelDataConnection {
     private Connection conn = null;
@@ -312,24 +308,19 @@ public class HotelDataConnection {
     }
 
     /**
-     * Get price of specific room
-     * @param hotelId ID of hotel that room is at
-     * @param roomNum Room number of room 
-     * @return price as Integer
+     * Get all rooms at a specific hotel
+     * @param hotelId id of hotel
+     * @return ArrayList<Room>
      * @throws Exception
      */
-    public Integer getPrice(Integer hotelId, Integer roomNum) throws Exception{
+    public ArrayList<Room> getRoomsByHotelId(Integer hotelId) throws Exception {
         getConnection();
-        PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM ROOMS WHERE hotelId = ? and roomNum = ?");
+        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ROOMS WHERE hotelId = ?");
         pstmt.setInt(1, hotelId); 
-        pstmt.setInt(2, roomNum);
         ResultSet rs = pstmt.executeQuery();
-        Integer res = rs.getInt("price");
-        rs.close();
-        closeConnection();
-        return res;
+        return readRooms(rs);
     }
-
+    
     /**
      * Get specific hotel room
      * @param hotelId id of hotel 
@@ -349,20 +340,7 @@ public class HotelDataConnection {
         return res;
     }
 
-    /**
-     * Get all rooms at a specific hotel
-     * @param hotelId id of hotel
-     * @return ArrayList<Room>
-     * @throws Exception
-     */
-    public ArrayList<Room> getRoomsByHotelId(Integer hotelId) throws Exception {
-        getConnection();
-        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ROOMS WHERE hotelId = ?");
-        pstmt.setInt(1, hotelId); 
-        ResultSet rs = pstmt.executeQuery();
-        return readRooms(rs);
-    }
-
+    
     /**
      * Get all rooms at a specific hotel sorted by star rating
      * @param hotelId id of hotel
