@@ -58,7 +58,7 @@ public class HotelController {
 
     /**
      * @param hotels: the ArrayList of Hotels we are filtering
-     * @param consts: an array of Strings which correspond to boolean criteria for filtering
+     * @param constrs: an array of Strings which correspond to boolean criteria for filtering
      * @return the ArrayList of Hotels after filtering
      */
     public ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] constrs) throws Exception {
@@ -83,11 +83,16 @@ public class HotelController {
         return availableHotels;
     }
 
-    private ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] gildi) throws Exception {
+    /**
+     * @param hotels: the ArrayList of Hotels we are filtering
+     * @param constrs: an array of Integers containing possible starRatings which the hotels must correspond to
+     * @return the ArrayList of Hotels after filtering
+     */
+    private ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] constrs) throws Exception {
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
             Boolean check = false;
-            for (Integer n: gildi) {
+            for (Integer n: constrs) {
                 if(n == hotel.getHotelInfo().getStarRating()){
                     check = true;
                 }
@@ -99,12 +104,15 @@ public class HotelController {
         return availableHotels;
     }
 
+    /**
+     * Method that runs filterByStars and filterByInfo on the ArrayList of Hotels
+     * @param hotels: the ArrayList of Hotels we are filtering
+     * @param stars: an array of Integers containing possible starRatings which the hotels must correspond to
+     * @param info: an array of Strings which correspond to boolean criteria for filtering
+     * @return the ArrayList of Hotels after filtering
+     */
     public ArrayList<Hotel> filterHotels(ArrayList<Hotel> hotels, Integer[] stars, String[] info) throws Exception {
-        ReservationController reservController = ReservationController.getInstance();
-        ArrayList<Hotel> availableHotels = filterByStars(hotels, stars);
-        availableHotels = filterByInfo(availableHotels, info);
-        
-        return availableHotels;
+        return filterByInfo(filterByStars(hotels, stars), info);
     }
 
 
@@ -113,15 +121,19 @@ public class HotelController {
         return connection.getHotelById(ID);
     }
 
-    // getHotelIdByName
     public Hotel getHotelIdByName(String name) throws Exception {
         return connection.getHotelByName(name);
     }
 
-    // getHotelsByStarRating
-    // public ArrayList<Hotel> getHotelsByStarRating(Integer starRatings) throws Exception {
-    //     return connection.getHotelsByStarRating(starRating);
-    // }
+    public ArrayList<Room> getRoomsByHotelId(Integer hotelId) throws Exception {
+        return connection.getRoomsByHotelId(hotelId);
+    }
+
+    public ArrayList<Room> getRoomsByHotelIdAndRoomNum(Integer hotelId, Integer roomNum) throws Exception {
+        return connection.getRoomsByHotelIdAndRoomNum(hotelId, roomNum);
+    }
+
+
 
 }
 
