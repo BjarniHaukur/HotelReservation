@@ -23,10 +23,6 @@ public class HotelController {
         return instance;
     }
 
-    public ArrayList<Hotel> getAllHotels() throws Exception {
-        return connection.getAllHotels();
-    }
-
     /**
      * @param location: the location in which we want to search for hotels
      * @param numCustomers: the number of customers that we want to accomodate, i.e. the
@@ -34,6 +30,7 @@ public class HotelController {
      * @param startDate: the start date of the interval in which we want to search for hotels
      * @param endDate: the end date of the interval in which we want to search for hotels
      * @return an ArrayList of Hotels which fit these criteria
+     * @throws Exception
      */
     public ArrayList<Hotel> getAllAvailableHotels(Integer location, Integer numCustomers, LocalDate from, LocalDate to) throws Exception {
         ReservationController reservController = ReservationController.getInstance();
@@ -60,6 +57,7 @@ public class HotelController {
      * @param hotels: the ArrayList of Hotels we are filtering
      * @param constrs: an array of Strings which correspond to boolean criteria for filtering
      * @return the ArrayList of Hotels after filtering
+     * @throws Exception
      */
     public ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] constrs) throws Exception {
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
@@ -87,6 +85,7 @@ public class HotelController {
      * @param hotels: the ArrayList of Hotels we are filtering
      * @param constrs: an array of Integers containing possible starRatings which the hotels must correspond to
      * @return the ArrayList of Hotels after filtering
+     * @throws Exception
      */
     private ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] constrs) throws Exception {
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
@@ -110,12 +109,15 @@ public class HotelController {
      * @param stars: an array of Integers containing possible starRatings which the hotels must correspond to
      * @param info: an array of Strings which correspond to boolean criteria for filtering
      * @return the ArrayList of Hotels after filtering
+     * @throws Exception
      */
     public ArrayList<Hotel> filterHotels(ArrayList<Hotel> hotels, Integer[] stars, String[] info) throws Exception {
         return filterByInfo(filterByStars(hotels, stars), info);
     }
 
-
+        public ArrayList<Hotel> getAllHotels() throws Exception {
+        return connection.getAllHotels();
+    }
 
     public Hotel getHotelByID(Integer ID) throws Exception {
         return connection.getHotelById(ID);
@@ -125,15 +127,29 @@ public class HotelController {
         return connection.getHotelByName(name);
     }
 
+    public ArrayList<Hotel> getHotelsByStarRating(Integer starRating) throws Exception {
+        return connection.getHotelsByStarRating(starRating);
+    }
+
+    public ArrayList<Hotel> getHotelsInArea(Integer area) throws Exception {
+        return connection.getHotelsInArea(area);
+    }
+
+    public ArrayList<Hotel> getHotelsInTown(String town) throws Exception {
+        return connection.getHotelsInTown(town);
+    }
+
     public ArrayList<Room> getRoomsByHotelId(Integer hotelId) throws Exception {
         return connection.getRoomsByHotelId(hotelId);
     }
 
-    public ArrayList<Room> getRoomsByHotelIdAndRoomNum(Integer hotelId, Integer roomNum) throws Exception {
-        return connection.getRoomsByHotelIdAndRoomNum(hotelId, roomNum);
+    public Room getRoomsByIds(Integer hotelId, Integer roomNum) throws Exception {
+        return connection.getRoomByIds(hotelId, roomNum);
     }
 
-
+    public ArrayList<Room> sortAllRoomsByPrice() throws Exception {
+        return connection.sortAllRoomsByPrice();
+    }
 
 }
 
