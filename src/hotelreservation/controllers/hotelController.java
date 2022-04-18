@@ -34,21 +34,20 @@ public class HotelController {
         String fromString = from.toString();
         String toString = to.toString();
         ArrayList<Hotel> hotels = connection.getHotelsInArea(location);
+        ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
             ArrayList<Room> rooms = connection.getRoomsByHotelId(hotel.getId());
             Integer count = 0;
             for (Room room : rooms) {
-                if (!reservController.isAvailable(room.getHotelId(), room.getRoomNum(), fromString, toString)) {
-                    rooms.remove(room);
-                } else {
+                if (reservController.isAvailable(room.getHotelId(), room.getRoomNum(), fromString, toString)) {
                     count += room.getCapacity();
                 }
             }
-            if (count < numCustomers) {
-                hotels.remove(hotel);
+            if (count >= numCustomers) {
+                availableHotels.add(hotel);
             }
         }
-        return hotels;
+        return availableHotels;
     }
 
     public Hotel getHotelByID(Integer ID) throws Exception {

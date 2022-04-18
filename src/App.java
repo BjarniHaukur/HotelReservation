@@ -18,24 +18,17 @@ public class App {
         String bla = localDate.toString();
         System.out.println(bla);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(sdf.parse(bla));
+        // System.out.println(sdf.parse(bla));
 
-        // ReservationController reservationController = ReservationController.getInstance();
-        // ArrayList<Reservation> reservations = reservationController.getAllReservations();
-        // // for (Reservation r : reservations) {
-        // //     System.out.println(r);
-        // // }
-        // System.out.println(reservationController.isAvailable(1, 101, "1999-12-31", "2000-12-31"));
-        // System.out.println(reservationController.isAvailable(1, 101, "1999-12-31", "2030-12-31"));
-
-        // // get hotels by star ratings
-        // HotelController hotelController = HotelController.getInstance();
-        // // ArrayList<Hotel> hotels = hotelController.getHotelsByStarRating(new Integer[] {1,2,3});
-        // HotelDataConnection connection = HotelDataConnection.getInstance();
-        // ArrayList<Hotel> hotels = connection.getHotelsByStarRating(4);
-        // for (Hotel h : hotels) {
-        //     System.out.println(h);
+        HotelController hotelController = HotelController.getInstance();
+        // ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        // for (Hotel hotel : hotels) {
+        //     System.out.println(hotel);
         // }
+        ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
+        for (Hotel hotel : hotels) {
+            System.out.println(hotel);
+        }
     }
 
     // public static void main(String[] args) throws Exception{

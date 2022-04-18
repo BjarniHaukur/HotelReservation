@@ -320,6 +320,25 @@ public class HotelDataConnection {
         return readReservations(rs);
     }
 
+    // public ArrayList<Hotel> getAvailableHotels(Integer id, Integer maxNum) throws Exception {
+    //     getConnection();
+    //     PreparedStatement pstmt = conn.prepareStatement(
+    //         "select id,name,sum(capacity) from hotels join rooms where hotelId = ? group by ?"
+    //     );
+    //     pstmt.setInt(1, id);
+    //     pstmt.setInt(2, id);
+    //     ResultSet rs = pstmt.executeQuery();
+    //     ArrayList<Hotel> hotels = new ArrayList<Hotel>();
+    //     while (rs.next()) {
+    //         Hotel hotel = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("region"),rs.getString("town"),rs.getString("image"),new Info(rs.getInt("starRating"),rs.getInt("priceRating"),rs.getBoolean("gym"),rs.getBoolean("spa"),rs.getBoolean("wifi"),rs.getBoolean("bar"),rs.getBoolean("restaurant")));
+    //         Integer sum = rs.getInt("sum(capacity)");
+    //         if (sum <= maxNum) {
+    //             hotels.add(hotel);
+    //         }
+    //     }
+    //     return hotels;
+    // }
+
 
     // Get bookings by hotel
     // Get Rooms by hotel
