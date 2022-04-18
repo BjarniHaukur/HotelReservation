@@ -21,14 +21,6 @@ public class ReservationController {
         return instance;
     }
 
-    public ArrayList<Reservation> getAllReservations() throws Exception {
-        return connection.getAllReservations();
-    }
-
-    public ArrayList<Reservation> getRoomReservations(Integer hotelID, Integer roomNum) throws Exception {
-        return connection.getRoomReservations(hotelID, roomNum);
-    }
-
     /** 
      * Checks if the room is available for the given dates
      * @return true if the room is available for the given date range
@@ -61,6 +53,14 @@ public class ReservationController {
      */
     public void removeReservations(String resID) throws Exception {
         connection.removeReservation(resID);
+    }
+
+    public ArrayList<Reservation> getAllReservations() throws Exception {
+        return connection.getAllReservations();
+    }
+
+    public ArrayList<Reservation> getRoomReservations(Integer hotelID, Integer roomNum) throws Exception {
+        return connection.getRoomReservations(hotelID, roomNum);
     }
 
 }

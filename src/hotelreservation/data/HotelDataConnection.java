@@ -257,55 +257,58 @@ public class HotelDataConnection {
     }
 
     /**
-     * Returns all reservations for specific hotel
-     * @param hotelId ID of specific hotel
-     * @return ArrayList<Reservation>
+     * Delete Hotel from database
+     * @param hotelId Hotel ID of the hotel to be deleted
      * @throws Exception
      */
-    public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
+    public void removeHotel(Integer hotelId) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
-            "SELECT reservationId, created, startDate, endDate, cName, cEmail, cPhone, numCustomers FROM RESERVATIONS WHERE hotelId = ?");
+            "DELETE FROM HOTELS WHERE hotelId = ?");
         pstmt.setInt(1, hotelId);
-        ResultSet rs = pstmt.executeQuery();
-        return readReservations(rs);
-    }
-    /**
-     * Create reservation in database from Reservation object
-     * @param resv Reservation object
-     * @throws Exception
-     */
-    public void createReservation(Reservation resv) throws Exception{
-        getConnection();
-        PreparedStatement pstmt = conn.prepareStatement(
-            "INSERT INTO RESERVATIONS(?,?,?,?,?,?,?,?,?,?)");
-        pstmt.setString(1,resv.getReservationId());
-        pstmt.setString(2,resv.getCreated());
-        pstmt.setString(3,resv.getStartDate());
-        pstmt.setString(4,resv.getEndDate());
-        pstmt.setString(5,resv.getCustomerName());
-        pstmt.setString(6,resv.getCustomerEmail());
-        pstmt.setString(7,resv.getCustomerPhone());
-        pstmt.setInt(8,resv.getNumCustomers());
-        pstmt.setInt(9,resv.getHotelId());
-        pstmt.setInt(10,resv.getRoomNum());
+        pstmt.executeUpdate();
+
+        pstmt = conn.prepareStatement(
+            "DELETE FROM ROOMS WHERE hotelId = ?");
+        pstmt.setInt(1, hotelId);
         pstmt.executeUpdate();
         closeConnection();
     }
 
     /**
-     * Delete reservation from database
-     * @param resID Reservation ID of reservation to delete
+     * Creates room in database from room object
+     * @param room Room object
      * @throws Exception
      */
-    public void removeReservation(String resID) throws Exception{
+    public void createRoom(Room room) throws Exception{
         getConnection();
-        PreparedStatement pstmt = conn.prepareStatement(
-            "DELETE FROM RESERVATIONS WHERE reservationId = ?");
-        pstmt.setString(1, resID);
+        PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ROOMS VALUES(?,?,?,?,?,?)");
+        pstmt.setInt(1,room.getRoomNum());
+        pstmt.setInt(2,room.getHotelId());
+        pstmt.setInt(3,room.getPrice());
+        pstmt.setInt(4,room.getType());
+        pstmt.setInt(5,room.getNumBeds());
+        pstmt.setInt(6,room.getCapacity());
         pstmt.executeUpdate();
         closeConnection();
     }
+
+    /**
+     * Delete room from database
+     * @param hotelId the id of the Hotel which contains the room
+     * @param roomNum the room number of the room to be deleted
+     * @throws Exception
+     */
+    public void removeRoom(Integer hotelId, Integer roomNum) throws Exception{
+        getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(
+            "DELETE FROM HOTELS WHERE hotelId = ? AND roomNum = ?");
+        pstmt.setInt(1, hotelId);
+        pstmt.setInt(2, roomNum);
+        pstmt.executeUpdate();
+        closeConnection();
+    }
+
 
     /**
      * Get all rooms at a specific hotel
@@ -340,11 +343,21 @@ public class HotelDataConnection {
         return res;
     }
 
-    
     /**
-     * Get all rooms at a specific hotel sorted by star rating
-     * @param hotelId id of hotel
-     * @return ArrayList<Room>
+     * Get all rooms sorted by price
+     * @return the sorted list of rooms
+     * @throws Exception
+     */
+    public ArrayList<Room> sortAllRoomsByPrice() throws Exception {
+        getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM ROOMS ORDER BY price DESC");
+        return readRooms(rs);
+    }
+
+    /**
+     * Get all rooms sorted by star rating
+     * @return the sorted list of rooms
      * @throws Exception
      */
     public ArrayList<Room> sortAllRoomsByStars() throws Exception {
@@ -354,6 +367,45 @@ public class HotelDataConnection {
         return readRooms(rs);
     }
     
+    
+    /**
+     * Create reservation in database from Reservation object
+     * @param resv Reservation object
+     * @throws Exception
+     */
+    public void createReservation(Reservation resv) throws Exception{
+        getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(
+            "INSERT INTO RESERVATIONS(?,?,?,?,?,?,?,?,?,?)");
+        pstmt.setString(1,resv.getReservationId());
+        pstmt.setString(2,resv.getCreated());
+        pstmt.setString(3,resv.getStartDate());
+        pstmt.setString(4,resv.getEndDate());
+        pstmt.setString(5,resv.getCustomerName());
+        pstmt.setString(6,resv.getCustomerEmail());
+        pstmt.setString(7,resv.getCustomerPhone());
+        pstmt.setInt(8,resv.getNumCustomers());
+        pstmt.setInt(9,resv.getHotelId());
+        pstmt.setInt(10,resv.getRoomNum());
+        pstmt.executeUpdate();
+        closeConnection();
+    }
+    
+
+    /**
+     * Delete reservation from database
+     * @param resID Reservation ID of reservation to delete
+     * @throws Exception
+     */
+    public void removeReservation(String resID) throws Exception{
+        getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(
+            "DELETE FROM RESERVATIONS WHERE reservationId = ?");
+        pstmt.setString(1, resID);
+        pstmt.executeUpdate();
+        closeConnection();
+    }
+
     /**
      * Get all reservations in database
      * @return ArrayList<Reservation>
