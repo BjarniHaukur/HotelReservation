@@ -24,7 +24,6 @@ CREATE TABLE ROOMS (
     FOREIGN KEY(hotelId) REFERENCES HOTELS(id)
     );
 
--- ath contact
 CREATE TABLE RESERVATIONS (
     reservationId VARCHAR(128) NOT NULL,
     created VARCHAR(10) NOT NULL,
@@ -40,7 +39,6 @@ CREATE TABLE RESERVATIONS (
     FOREIGN KEY(hotelId,roomNum) REFERENCES ROOMS(hotelId,roomNum)
 );
 
--- 
 INSERT INTO HOTELS VALUES(1,'Hótel Ísafjörður',1,'Ísafjörður','isafjord.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
 INSERT INTO HOTELS VALUES(2,'Hótel Bolungarvík',1,'Bolungarvík','bolung.jpg',4,2,True,FALSE,TRUE,FALSE,TRUE);
 INSERT INTO HOTELS VALUES(3,'Hótel Reykjarfjörður',1,'Reykjarfjörður','reykjar.jpg',4,3,TRUE,FALSE,TRUE,TRUE,TRUE);
