@@ -85,21 +85,20 @@ public class HotelController {
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
             Boolean check = true;
-            for (int i = 0; i < gildi.length; i++) {
-                if(gildi[i].contains("gym") && !hotel.getHotelInfo().getGym()){
+            for (String s: gildi) {
+                if(s.contains("gym") && !hotel.getHotelInfo().getGym()){
                     check = false;
                 }
-                if(gildi[i].contains("wifi") && !hotel.getHotelInfo().getWifi()){
+                if(s.contains("wifi") && !hotel.getHotelInfo().getWifi()){
                     check = false;
                 }
-                if(gildi[i].contains("breakfast") && !hotel.getHotelInfo().getRestaurant()){
+                if(s.contains("breakfast") && !hotel.getHotelInfo().getRestaurant()){
                     check = false;
                 }
             }
             if(check){
                 availableHotels.add(hotel);
             }
-
         }
         return availableHotels;
     }
