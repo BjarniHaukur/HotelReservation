@@ -50,6 +50,16 @@ public class HotelController {
         return availableHotels;
     }
 
+    public ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] gildi) throws Exception {
+        ReservationController reservController = ReservationController.getInstance();
+        ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
+        for (Hotel hotel : hotels) {
+            //asldkfj
+
+        }
+
+    }
+
     public Hotel getHotelByID(Integer ID) throws Exception {
         return connection.getHotelById(ID);
     }
