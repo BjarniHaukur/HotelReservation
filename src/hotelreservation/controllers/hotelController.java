@@ -83,6 +83,32 @@ public class HotelController {
         return availableHotels;
     }
 
+    private ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] gildi) throws Exception {
+        ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
+        for (Hotel hotel : hotels) {
+            Boolean check = false;
+            for (Integer n: gildi) {
+                if(n == hotel.getHotelInfo().getStarRating()){
+                    check = true;
+                }
+            }
+            if(check){
+                availableHotels.add(hotel);
+            }
+        }
+        return availableHotels;
+    }
+
+    public ArrayList<Hotel> filterHotels(ArrayList<Hotel> hotels, Integer[] stars, String[] info) throws Exception {
+        ReservationController reservController = ReservationController.getInstance();
+        ArrayList<Hotel> availableHotels = filterByStars(hotels, stars);
+        availableHotels = filterByInfo(availableHotels, info);
+        
+        return availableHotels;
+    }
+
+
+
     public Hotel getHotelByID(Integer ID) throws Exception {
         return connection.getHotelById(ID);
     }
