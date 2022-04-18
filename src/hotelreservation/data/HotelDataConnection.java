@@ -279,7 +279,7 @@ public class HotelDataConnection {
      * @param resv Reservation object
      * @throws Exception
      */
-    public void logReservation(Reservation resv) throws Exception{
+    public void createReservation(Reservation resv) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
             "INSERT INTO RESERVATIONS(?,?,?,?,?,?,?,?,?,?)");

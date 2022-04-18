@@ -50,7 +50,7 @@ public class ReservationController {
         if (isAvailable(res.getHotelId(), res.getRoomNum(), res.getStartDate(), res.getEndDate())) {
             Room room = connection.getRoomByIds(res.getHotelId(), res.getRoomNum());
             if (res.getNumCustomers() <= room.getCapacity())
-                connection.logReservation(res);
+                connection.createReservation(res);
             else throw new Exception("Room is not large enough for the number of customers");
 
         } else throw new Exception("Room is not available");
