@@ -14,10 +14,10 @@ public class App {
     public static void main(String[] args) throws Exception {
         // Mock reservation
 
-        LocalDate localDate = LocalDate.now();//For reference
-        String bla = localDate.toString();
-        System.out.println(bla);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.now();
+        // String bla = localDate.toString();
+        // System.out.println(bla);
+        // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         // System.out.println(sdf.parse(bla));
 
         HotelController hotelController = HotelController.getInstance();
@@ -26,9 +26,16 @@ public class App {
         //     System.out.println(hotel);
         // }
         ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
-        for (Hotel hotel : hotels) {
+
+        ArrayList<Hotel> filtered = hotelController.filterHotelsByInfo(hotels, new String[]{"1 stars", "2 stars", "3 stars", "4 stars", "5 stars"});
+        for (Hotel hotel : filtered) {
             System.out.println(hotel);
         }
+        // String[] constrs = new String[]{"1 stars", "2 stars", "3 stars", "4 stars", "5 stars"};
+        // System.out.println(constrs.length);
+        // for (String s: constrs) {
+        //     System.out.println(s);
+        // }
     }
 
     // public static void main(String[] args) throws Exception{

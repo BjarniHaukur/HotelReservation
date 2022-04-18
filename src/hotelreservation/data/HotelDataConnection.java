@@ -184,17 +184,17 @@ public class HotelDataConnection {
         return readHotels(rs);
     }
 
-    public ArrayList<Hotel> getHotelsFromFilter(Map<String, String> filters) throws Exception {
-        getConnection();
-        String query = "SELECT * FROM HOTELS WHERE ";
-        for (Map.Entry<String, String> entry : filters.entrySet()) {
-            query += entry.getKey() + " = '" + entry.getValue() + "' AND ";
-        }
-        query = query.substring(0, query.length() - 5);
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
-        return readHotels(rs);
-    }
+    // public ArrayList<Hotel> getHotelsFromFilter(Map<String, String> filters) throws Exception {
+    //     getConnection();
+    //     String query = "SELECT * FROM HOTELS WHERE ";
+    //     for (Map.Entry<String, String> entry : filters.entrySet()) {
+    //         query += entry.getKey() + " = '" + entry.getValue() + "' AND ";
+    //     }
+    //     query = query.substring(0, query.length() - 5);
+    //     Statement stmt = conn.createStatement();
+    //     ResultSet rs = stmt.executeQuery(query);
+    //     return readHotels(rs);
+    // }
 
 
     public void createHotel(Hotel hotel) throws Exception{
