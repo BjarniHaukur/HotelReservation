@@ -27,7 +27,9 @@ public class ReservationController {
         Reservation mockReservation = new Reservation("", "", startDate, endDate, "", "", "", 0, roomId, hotelId);
         ArrayList<Reservation> reservations = connection.getRoomReservations(hotelId, roomId);
         for (Reservation res: reservations) {
-            if
+            if (res.compareTo(mockReservation) != 0) {
+                return false;
+            }))
         }
         return connection.isAvailable(hotelId, roomId, startDate, endDate);
     }

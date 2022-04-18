@@ -24,7 +24,6 @@ CREATE TABLE ROOMS (
     FOREIGN KEY(hotelId) REFERENCES HOTELS(id)
     );
 
--- ath contact
 CREATE TABLE RESERVATIONS (
     reservationId VARCHAR(128) NOT NULL,
     created VARCHAR(10) NOT NULL,
