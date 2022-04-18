@@ -1,7 +1,5 @@
 package hotelreservation.entities;
 
-import java.util.ArrayList;
-
 public class Room {
 
     private Integer roomNum;

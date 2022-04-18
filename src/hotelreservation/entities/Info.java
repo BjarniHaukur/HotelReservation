@@ -1,8 +1,5 @@
 package hotelreservation.entities;
 
-import java.util.ArrayList;
-import hotelreservation.controllers.HotelController;
-
 public class Info {
 
     private Integer starRating;
