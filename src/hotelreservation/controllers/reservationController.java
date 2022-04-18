@@ -24,7 +24,11 @@ public class ReservationController {
     }
 
     public boolean isAvailable(int hotelId, int roomId, String startDate, String endDate) throws Exception {
+        Reservation mockReservation = new Reservation("", "", startDate, endDate, "", "", "", 0, roomId, hotelId);
         ArrayList<Reservation> reservations = connection.getRoomReservations(hotelId, roomId);
+        for (Reservation res: reservations) {
+            if
+        }
         return connection.isAvailable(hotelId, roomId, startDate, endDate);
     }
 

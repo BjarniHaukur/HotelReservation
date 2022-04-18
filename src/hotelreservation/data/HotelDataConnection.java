@@ -61,7 +61,7 @@ public class HotelDataConnection {
         // ApplicationDirectory returns the private read-write sandbox area
         // of the mobile device's file system that this application can access.
         // This is where the database is created
-        String dbName = "/HotelData.db";
+        String dbName = "HotelData.db";
 
         // Verify whether or not the database exists.
         // If it does, then it has already been initialized

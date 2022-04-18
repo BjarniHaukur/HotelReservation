@@ -40,38 +40,38 @@ CREATE TABLE RESERVATIONS (
     FOREIGN KEY(hotelId,roomNum) REFERENCES ROOMS(hotelId,roomNum)
 );
 
+-- 
+INSERT INTO HOTELS VALUES(1,'Hótel Ísafjörður',1,'Ísafjörður','isafjord.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(2,'Hótel Bolungarvík',1,'Bolungarvík','bolung.jpg',4,2,True,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(3,'Hótel Reykjarfjörður',1,'Reykjarfjörður','reykjar.jpg',4,3,TRUE,FALSE,TRUE,TRUE,TRUE);
 
-INSERT INTO HOTELS VALUES(1,'Hótel Ísafjörður',1,'Ísafjörður','isafjord.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(2,'Hótel Bolungarvík',1,'Bolungarvík','bolung.jpg',4,2,True,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(3,'Hótel Reykjarfjörður',1,'Reykjarfjörður','reykjar.jpg',4,3,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(4,'Hótel Stykkishólmur',2,'Stykkishólmur','stykkish.jpg',3,1,FALSE,FALSE,FALSE,TRUE,FALSE);
+INSERT INTO HOTELS VALUES(5,'Hótel Vík',2,'Ólafsvík','olafsvik.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(6,'Hótel Örn',2,'Arnarstapi','arnar.jpg',3,2,TRUE,FALSE,TRUE,FALSE,TRUE);
 
-INSERT INTO HOTELS VALUES(4,'Hótel Stykkishólmur',2,'Stykkishólmur','stykkish.jpg',3,1,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(5,'Hótel Vík',2,'Ólafsvík','olafsvik.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(6,'Hótel Örn',2,'Arnarstapi','arnar.jpg',3,2,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE);
+INSERT INTO HOTELS VALUES(7,'Saga Hótel',3,'Reykjavík','saga.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(8,'Hótel Hvammur',3,'Keflavík','hvammur.jpg',3,2,TRUE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(9,'Hótel Þór',3,'Selfoss','tor.jpg',4,3,FALSE,TRUE,FALSE,TRUE,TRUE);
 
-INSERT INTO HOTELS VALUES(7,'Saga Hótel',3,'Reykjavík','saga.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(8,'Hótel Hvammur',3,'Keflavík','hvammur.jpg',3,2,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE);
-INSERT INTO HOTELS VALUES(9,'Hótel Þór',3,'Selfoss','tor.jpg',4,3,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE);
+INSERT INTO HOTELS VALUES(10,'Hótel Vestmannaeyjar',4,'Vestmannaeyjar','vestman.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
 
-INSERT INTO HOTELS VALUES(10,'Hótel Vestmannaeyjar',4,'Vestmannaeyjar','vestman.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(11,'Hótel Egilsstaðir',5,'Egilsstaðir','egils.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(12,'Hótel Seyðisfjörður',5,'Seyðisfjörður','seydisfj.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(13,'Hótel Neskaupsstaður',5,'Neskaupsstaður','neskaup.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(14,'Hótel Fjarðabyggð',5,'Fjarðabyggð','fjar.jpg',2,1,FALSE,FALSE,FALSE,FALSE,FALSE);
 
-INSERT INTO HOTELS VALUES(11,'Hótel Egilsstaðir',5,'Egilsstaðir','egils.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(12,'Hótel Seyðisfjörður',5,'Seyðisfjörður','seydisfj.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(13,'Hótel Neskaupsstaður',5,'Neskaupsstaður','neskaup.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(14,'Hótel Fjarðabyggð',5,'Fjarðabyggð','fjar.jpg',2,1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE);
+INSERT INTO HOTELS VALUES(15,'Hótel Akureyri',6,'Akureyri','akureyri.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE);
+INSERT INTO HOTELS VALUES(16,'Hótel Húsavík',6,'Húsavík','husavik.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE);
+INSERT INTO HOTELS VALUES(17,'Hótel Reykjahlíð',6,'Reykjahlíð','reykjahlid.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE);
 
-INSERT INTO HOTELS VALUES(15,'Hótel Akureyri',6,'Akureyri','akureyri.jpg',5,3,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(16,'Hótel Húsavík',6,'Húsavík','husavik.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE);
-INSERT INTO HOTELS VALUES(17,'Hótel Reykjahlíð',6,'Reykjahlíð','reykjahlid.jpg',4,2,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE);
-
--- INSERT INTO HOTELS VALUES(1,'The Plaza Hotel',3,'768 Fifth Avenue','plaza.jpg',5,3,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE);
--- INSERT INTO HOTELS VALUES(2,'Bates Motel',2,'1054 272nd Street','bates.jpg',3,1,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE);
--- INSERT INTO HOTELS VALUES(3,'Park Hyatt',4,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',4,3,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE);
--- INSERT INTO HOTELS VALUES(4,'The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',4,2,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE);
--- INSERT INTO HOTELS VALUES(5,"Caesar's Palace",1,'3570 S Las Vegas Blvd','caesar.jpg',5,3,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE);
--- INSERT INTO HOTELS VALUES(6,'Grand Budapest Hotel',2,'Garlitzer Warenhaus Department Store','budapest.jpg',1,1,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE);
--- INSERT INTO HOTELS VALUES(7,'Seminole Ritz Hotel',3,'1500 Orange Ave','seminole.jpg',3,2,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE);
--- INSERT INTO HOTELS VALUES(8,'Beverly Wilshire',4,'9500 Wilshire Blvd','wilshire.jpg',3,1,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE);
+-- INSERT INTO HOTELS VALUES(1,'The Plaza Hotel',3,'768 Fifth Avenue','plaza.jpg',5,3,FALSE,FALSE,TRUE,TRUE,TRUE);
+-- INSERT INTO HOTELS VALUES(2,'Bates Motel',2,'1054 272nd Street','bates.jpg',3,1,FALSE,TRUE,FALSE,FALSE,TRUE,F);
+-- INSERT INTO HOTELS VALUES(3,'Park Hyatt',4,'3 Chome-7-1-2 Nishishinjuku','hyatt.jpg',4,3,TRUE,TRUE,TRUE,TRUE,TRUE,);
+-- INSERT INTO HOTELS VALUES(4,'The Overlook Hotel',2,'333 E Wonderview Ave','overlook.jpg',4,2,FALSE,TRUE,FALSE,TRUE,FALSE);
+-- INSERT INTO HOTELS VALUES(5,"Caesar's Palace",1,'3570 S Las Vegas Blvd','caesar.jpg',5,3,TRUE,FALSE,TRUE,TRUE,TRUE,);
+-- INSERT INTO HOTELS VALUES(6,'Grand Budapest Hotel',2,'Garlitzer Warenhaus Department Store','budapest.jpg',1,1,FALSE,FALSE,FALSE,TRUE,FALSE,);
+-- INSERT INTO HOTELS VALUES(7,'Seminole Ritz Hotel',3,'1500 Orange Ave','seminole.jpg',3,2,TRUE,FALSE,TRUE,TRUE,TRUE);
+-- INSERT INTO HOTELS VALUES(8,'Beverly Wilshire',4,'9500 Wilshire Blvd','wilshire.jpg',3,1,TRUE,TRUE,FALSE,TRUE,FALSE,);
 
 
 -- Insert into ROOMS for each hotelID
