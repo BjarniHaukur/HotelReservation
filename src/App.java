@@ -20,18 +20,22 @@ public class App {
         // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         // System.out.println(sdf.parse(bla));
 
-        HotelController hotelController = HotelController.getInstance();
-        ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        // HotelController hotelController = HotelController.getInstance();
+        // ArrayList<Hotel> hotels = hotelController.getAllHotels();
         // for (Hotel hotel : hotels) {
         //     System.out.println(hotel);
         // }
-        // String[] gildi = {"gym","wifi","breakfast"};
+        // String[] info = {"gym","wifi","breakfast"};
         // ArrayList<Hotel> avhotels = hotelController.filterByInfo(hotels,gildi);
         // for (Hotel hotel : avhotels) {
         //     System.out.println(hotel);
         // }
-        Integer[] gildi = {5,3};
-        ArrayList<Hotel> avhotels = hotelController.filterByStars(hotels,gildi);
+        HotelController hotelController = HotelController.getInstance();
+        ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        // ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
+        String[] info = {"gym","wifi","breakfast"};
+        Integer[] stars = {5,3};
+        ArrayList<Hotel> avhotels = hotelController.filterHotels(hotels,stars,info);
         for (Hotel hotel : avhotels) {
             System.out.println(hotel);
         }

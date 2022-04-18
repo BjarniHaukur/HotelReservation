@@ -120,6 +120,14 @@ public class HotelController {
         return availableHotels;
     }
 
+    public ArrayList<Hotel> filterHotels(ArrayList<Hotel> hotels, Integer[] stars, String[] info) throws Exception {
+        ReservationController reservController = ReservationController.getInstance();
+        ArrayList<Hotel> availableHotels = filterByStars(hotels, stars);
+        availableHotels = filterByInfo(availableHotels, info);
+        
+        return availableHotels;
+    }
+
 
 
     public Hotel getHotelByID(Integer ID) throws Exception {
