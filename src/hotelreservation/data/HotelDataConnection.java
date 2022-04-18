@@ -55,7 +55,7 @@ public class HotelDataConnection {
             System.err.println(e.getMessage());
         }
     }
-
+    // From oracle docs
     private void initializeDatabaseFromScript() throws Exception {
         InputStream scriptStream = null;
         // ApplicationDirectory returns the private read-write sandbox area
@@ -98,6 +98,12 @@ public class HotelDataConnection {
         scriptReader.close();
     }
 
+    /**
+     * Reads result set from SQL query and adds to Arraylist of Hotels
+     * @param rs result set from SQL query
+     * @return ArrayList<Hotel> Arraylist of hotels in result set
+     * @throws Exception
+     */
     private ArrayList<Hotel> readHotels(ResultSet rs) throws Exception {
         ArrayList<Hotel> res = new ArrayList<Hotel>();
         while (rs.next()) {
@@ -108,6 +114,12 @@ public class HotelDataConnection {
         return res;
     }
 
+     /**
+     * Reads result set from SQL query and adds to Arraylist of Reservations
+     * @param rs result set from SQL query
+     * @return ArrayList<Reservation> Arraylist of reservations in result set
+     * @throws Exception
+     */
     private ArrayList<Reservation> readReservations(ResultSet rs) throws Exception {
         ArrayList<Reservation> res = new ArrayList<Reservation>();
         while (rs.next()) {
@@ -119,6 +131,12 @@ public class HotelDataConnection {
         return res;
     }
 
+    /**
+     * Reads result set from SQL query and adds to Arraylist of Rooms
+     * @param rs result set from SQL query
+     * @return ArrayList<Room> Arraylist of rooms in result set
+     * @throws Exception
+     */
     private ArrayList<Room> readRooms(ResultSet rs) throws Exception {
         ArrayList<Room> res = new ArrayList<Room>();
         while (rs.next()) {
@@ -129,16 +147,24 @@ public class HotelDataConnection {
         return res;
     }
 
-
-
-    // SQL köll
-    // Hotels
+    /**
+     * Get all hotels in database
+     * @return ArrayList<Hotel>
+     * @throws Exception
+     */
     public ArrayList<Hotel> getAllHotels() throws Exception {
         getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM HOTELS");
         return readHotels(rs);
     }
+
+    /**
+     * Returns hotel with given id
+     * @param id ID of hotel in database
+     * @return Hotel 
+     * @throws Exception
+     */
     public Hotel getHotelById(Integer id) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE id = ?");
@@ -149,6 +175,13 @@ public class HotelDataConnection {
         closeConnection();
         return res;
     }
+
+    /**
+     * Returns hotel with given name
+     * @param name name of hotel in database
+     * @return Hotel 
+     * @throws Exception
+     */
     public Hotel getHotelByName(String name) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE name = ?");
@@ -160,6 +193,12 @@ public class HotelDataConnection {
         return res;
     }
 
+    /**
+     * Returns hotels with given star rating
+     * @param starRating Integer from 1-5
+     * @return ArrayList<Hotel> 
+     * @throws Exception
+     */
     public ArrayList<Hotel> getHotelsByStarRating(Integer starRating) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE starRating = ?");
@@ -168,6 +207,12 @@ public class HotelDataConnection {
         return readHotels(rs);
     }
 
+    /**
+     * Returns hotels in given area
+     * @param areacode Integer from 1-6 
+     * @return ArrayList<Hotel> 
+     * @throws Exception
+     */
     public ArrayList<Hotel> getHotelsInArea(Integer areaCode) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE region = ?");
@@ -176,6 +221,12 @@ public class HotelDataConnection {
         return readHotels(rs);
     }
 
+    /**
+     * Returns hotels in given town name
+     * @param townName name of town
+     * @return ArrayList<Hotel>
+     * @throws Exception
+     */
     public ArrayList<Hotel> getHotelsInTown(String townName) throws Exception {
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM HOTELS WHERE town = ?");
@@ -184,19 +235,11 @@ public class HotelDataConnection {
         return readHotels(rs);
     }
 
-    // public ArrayList<Hotel> getHotelsFromFilter(Map<String, String> filters) throws Exception {
-    //     getConnection();
-    //     String query = "SELECT * FROM HOTELS WHERE ";
-    //     for (Map.Entry<String, String> entry : filters.entrySet()) {
-    //         query += entry.getKey() + " = '" + entry.getValue() + "' AND ";
-    //     }
-    //     query = query.substring(0, query.length() - 5);
-    //     Statement stmt = conn.createStatement();
-    //     ResultSet rs = stmt.executeQuery(query);
-    //     return readHotels(rs);
-    // }
-
-
+    /**
+     * Creates hotel in database from hotel object
+     * @param hotel Hotel object
+     * @throws Exception
+     */
     public void createHotel(Hotel hotel) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement("INSERT INTO HOTELS VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -217,8 +260,12 @@ public class HotelDataConnection {
         closeConnection();
     }
 
-
-
+    /**
+     * Returns all reservations for specific hotel
+     * @param hotelId ID of specific hotel
+     * @return ArrayList<Reservation>
+     * @throws Exception
+     */
     public ArrayList<Reservation> getReservationsByhotelId(Integer hotelId) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
@@ -227,8 +274,12 @@ public class HotelDataConnection {
         ResultSet rs = pstmt.executeQuery();
         return readReservations(rs);
     }
-
-    public void logReservation(Reservation resv) throws Exception{
+    /**
+     * Create reservation in database from Reservation object
+     * @param resv Reservation object
+     * @throws Exception
+     */
+    public void createReservation(Reservation resv) throws Exception{
         getConnection();
         PreparedStatement pstmt = conn.prepareStatement(
             "INSERT INTO RESERVATIONS(?,?,?,?,?,?,?,?,?,?)");
