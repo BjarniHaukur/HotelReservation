@@ -80,7 +80,7 @@ public class HotelController {
     //     return availableHotels;
     // }
 
-    public ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] gildi) throws Exception {
+    private ArrayList<Hotel> filterByInfo(ArrayList<Hotel> hotels, String[] gildi) throws Exception {
         ReservationController reservController = ReservationController.getInstance();
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
@@ -102,6 +102,25 @@ public class HotelController {
         }
         return availableHotels;
     }
+
+    private ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] gildi) throws Exception {
+        ReservationController reservController = ReservationController.getInstance();
+        ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
+        for (Hotel hotel : hotels) {
+            Boolean check = false;
+            for (Integer n: gildi) {
+                if(n == hotel.getHotelInfo().getStarRating()){
+                    check = true;
+                }
+            }
+            if(check){
+                availableHotels.add(hotel);
+            }
+        }
+        return availableHotels;
+    }
+
+
 
     public Hotel getHotelByID(Integer ID) throws Exception {
         return connection.getHotelById(ID);

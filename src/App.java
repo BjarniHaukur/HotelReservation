@@ -25,8 +25,13 @@ public class App {
         // for (Hotel hotel : hotels) {
         //     System.out.println(hotel);
         // }
-        String[] gildi = {"gym","wifi","breakfast"};
-        ArrayList<Hotel> avhotels = hotelController.filterByInfo(hotels,gildi);
+        // String[] gildi = {"gym","wifi","breakfast"};
+        // ArrayList<Hotel> avhotels = hotelController.filterByInfo(hotels,gildi);
+        // for (Hotel hotel : avhotels) {
+        //     System.out.println(hotel);
+        // }
+        Integer[] gildi = {5,3};
+        ArrayList<Hotel> avhotels = hotelController.filterByStars(hotels,gildi);
         for (Hotel hotel : avhotels) {
             System.out.println(hotel);
         }
