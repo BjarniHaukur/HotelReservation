@@ -36,4 +36,16 @@ public class hotelControllerTest {
         assertEquals(1, hotel1.getID());
     }
 
+    @Test
+    void testFilter() {
+        ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        String[] info = {"gym","wifi"};
+        Integer[] stars = {5};
+        ArrayList<Hotel> filteredHotels = hotelController.filterHotels(hotels,stars,info);
+        for (Hotel hotel : filteredHotels) {
+            assertEquals(true, hotel.getGym());
+            assertEquals(true, hotel.getWifi());
+            assertEquals(5,hotel.getStarRating());
+    }
+
 }
