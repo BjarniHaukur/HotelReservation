@@ -89,6 +89,9 @@ public class HotelController {
      */
     private ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] constrs) throws Exception {
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
+        if(constrs.length==0){
+            return hotels;
+        }
         for (Hotel hotel : hotels) {
             Boolean check = false;
             for (Integer n: constrs) {

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
 
 public class App {
 
@@ -32,16 +33,22 @@ public class App {
         // }
         HotelController hotelController = HotelController.getInstance();
         ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        Integer countall = 0;
+        Integer countfiltered = 0;
         for (Hotel hotel : hotels) {
-            System.out.println(hotel);
+            countall++;
         }
         // ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
-        String[] info = {"gym","wifi","breakfast"};
-        Integer[] stars = {5,3};
+        String[] info = {};
+        Integer[] stars = {};
         ArrayList<Hotel> avhotels = hotelController.filterHotels(hotels,stars,info);
         for (Hotel hotel : avhotels) {
-            System.out.println(hotel);
+            // System.out.println(hotel);
+            countfiltered++;
         }
+        System.out.println("all:"+countall+" Hotels");
+        System.out.println("filtered:"+countfiltered+ " Hotels");
+
         // ArrayList<Hotel> hotels = hotelController.getAllAvailableHotels(1, 2, localDate, localDate.plusDays(6));
         // for (Hotel hotel : hotels) {
         //     System.out.println(hotel);
