@@ -47,5 +47,21 @@ public class hotelControllerTest {
             assertEquals(true, hotel.getWifi());
             assertEquals(5,hotel.getStarRating());
     }
+    @Test
+    void testEmptyFilter() {
+        ArrayList<Hotel> hotels = hotelController.getAllHotels();
+        String[] info = {};
+        Integer[] stars = {};
+        ArrayList<Hotel> filteredHotels = hotelController.filterHotels(hotels,stars,info);
+        Integer countall = 0;
+        Integer countfiltered = 0;
+        for (Hotel hotel : hotels) {
+            countall++;
+        }
+        for (Hotel hotel : filteredHotels) {
+            countfiltered++;
+        }
+        assertEquals(countall, countfiltered);
+    }
 
 }
